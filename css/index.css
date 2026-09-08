@@ -679,10 +679,3 @@ footer {
         font-size: 2.5rem;
     }
 }
-/* Desplazamiento suave para toda la página */
-html {
-    scroll-behavior: smooth;
-}
-.contacto-section {
-    scroll-margin-top: 90px; /* Compensación exacta para la barra de navegación */
-}
