@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGSG Construcciones | Inicio</title>
-    <!-- Ruta correcta hacia la carpeta de estilos -->
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
@@ -12,8 +11,7 @@
     <header>
         <div class="navbar">
             <div class="logo-container">
-                <!-- Ruta corregida para el logo de la barra de navegación -->
-                <img src="../logo.png" alt="SGSG Logo">
+                <img src="../logo-constructora.png" alt="SGSG Logo">
                 <span class="logo-text">SGSG</span>
             </div>
             
@@ -21,47 +19,36 @@
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Inicio</a></li>
                     
+                    <!-- Menú Desplegable de Servicios -->
                     <li class="dropdown">
-                        <a href="servicios.html" class="">Servicios <span class="arrow">&#9662;</span></a>
+                        <a href="servicios.html" class="dropdown-toggle">Servicios <span class="arrow">&#9662;</span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="servicios.html#arquitectura">Arquitectura</a></li>
-                            <li><a href="servicios.html#ingenieria">Ingeniería</a></li>
-                            <li><a href="servicios.html#saneamiento">Abogados</a></li>
-                            <li><a href="servicios.html#gestion">Construcción</a></li>
-                            <li><a href="servicios.html#asesoria">Consultoría</a></li>
+                            <li><a href="servicios.html#arquitectura">Diseño & Arquitectura</a></li>
+                            <li><a href="servicios.html#ingenieria">Ingeniería & Construcción</a></li>
+                            <li><a href="servicios.html#saneamiento">Saneamiento Legal e Inmobiliario</a></li>
+                            <li><a href="servicios.html#gestion">Gestión de Proyectos (BIM)</a></li>
+                            <li><a href="servicios.html#asesoria">Asesoría Técnica Especializada</a></li>
                         </ul>
                     </li>
 
                     <li><a href="casosdeexito.html">Casos de Éxito</a></li>
                     <li><a href="galeria.html">Galería 3D</a></li>
+                    <!-- Enlace actualizado para que apunte al ID de la sección -->
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- ESTRUCTURA HERO A 3 COLUMNAS -->
     <section class="hero">
-        <div class="hero-image">
-            <!-- Ruta hacia el edificio izquierdo -->
-            <img src="../edificio1.jpeg" alt="Proyecto Residencial SGSG">
-        </div>
-
         <div class="hero-content">
-            <!-- Ruta hacia el logo central -->
-            <img src="../logo.png" alt="SGSG Logo Central" class="hero-logo-center">
             <h1>Construcción, Arquitectura y Asesoría Legal Integral</h1>
             <p>Fusionamos la precisión de la ingeniería, la visión del diseño arquitectónico vanguardista y el blindaje legal para materializar proyectos inmobiliarios de alta envergadura.</p>
+            <!-- También actualizado para que baje al formulario -->
             <a href="#contacto" class="btn-primary">Cotizar Proyecto</a>
-        </div>
-
-        <div class="hero-image">
-            <!-- Ruta hacia el edificio derecho -->
-            <img src="../edificio2.jpeg" alt="Edificio Moderno SGSG">
         </div>
     </section>
 
-    <!-- RESTO DE LA PÁGINA (Nosotros y Contacto) -->
     <main class="main-container">
         <section class="nosotros-section">
             <div class="nosotros-title">
@@ -73,13 +60,13 @@
             </div>
         </section>
 
+        <!-- NUEVA SECCIÓN DE CONTACTO -->
         <section id="contacto" class="contacto-section">
             <div class="contacto-container">
                 <h2>Contáctanos</h2>
                 <p>Déjanos tus datos y nos comunicaremos contigo a la brevedad.</p>
                 
-                <!-- Formulario conectado al script form.js -->
-                <form action="#" method="POST" class="contacto-form" id="formularioSGSG">
+                <form action="#" method="POST" class="contacto-form">
                     <div class="form-group">
                         <label for="nombre">Nombre completo:</label>
                         <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
@@ -121,9 +108,6 @@
     <footer>
         <p>&copy; 2026 SGSG Construcciones Asesoramiento Técnico & Legal S.A.C. Todos los derechos reservados.</p>
     </footer>
-
-    <!-- Conexión al Javascript -->
-    <script src="../javascript/form.js"></script>
 
 </body>
 </html>
