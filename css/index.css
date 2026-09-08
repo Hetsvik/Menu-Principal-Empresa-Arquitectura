@@ -217,7 +217,11 @@ a {
     gap: 2rem;
     min-height: 100vh;
     padding: 120px 3% 0;
-    background-color: var(--bg-main);
+    
+    /* Imagen de fondo con gradiente oscuro para legibilidad */
+    background: linear-gradient(rgba(15, 17, 21, 0.85), rgba(15, 17, 21, 0.9)), 
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070') center/cover no-repeat fixed;
+    
     overflow: hidden;
 }
 
