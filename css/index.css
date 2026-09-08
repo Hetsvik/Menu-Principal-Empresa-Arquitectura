@@ -1,543 +1,64 @@
-/* VARIABLES DE DISEÑO CORPORATIVO */
-:root {
-    --dark-bg: #0f1115;      /* Fondo ultra oscuro elegante */
-    --navbar-bg: #16191f;    /* Fondo de barra ligeramente más claro */
-    --card-bg: #1c2026;      /* Fondo para tarjetas e ítems */
-    --accent-color: #d4af37; /* Dorado sutil para detalles importantes */
-    --white: #ffffff;
-    --gray-text: #a0a5b0;
-    --border-color: rgba(255, 255, 255, 0.05);
-}
-
-/* RESET GENERAL */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Century Gothic', 'Segoe UI', sans-serif;
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: var(--dark-bg);
-    color: var(--white);
-    line-height: 1.6;
-    overflow-x: hidden;
-    padding-top: 85px; /* Espacio para que la barra fija no tape el contenido */
-}
-
-/* ENCABEZADO / NAVEGACIÓN FIXED */
-header {
-    background-color: var(--navbar-bg);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.navbar {
-    max-width: 1600px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.logo-container img {
-    height: 45px;
-    width: auto;
-    display: block;
-}
-
-.logo-text {
-    font-size: 1.2rem;
-    letter-spacing: 4px;
-    font-weight: bold;
-    color: var(--white);
-    text-transform: uppercase;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-}
-
-nav ul li a {
-    color: var(--gray-text);
-    text-decoration: none;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 500;
-    transition: color 0.3s ease, letter-spacing 0.3s ease;
-}
-
-nav ul li a:hover, nav ul li a.active {
-    color: var(--white);
-    letter-spacing: 3px;
-}
-
-/* CONTENEDOR COMÚN PARA SECCIONES INTERNAS */
-.main-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 60px 40px 100px 40px;
-}
-
-.page-title {
-    font-size: 2.8rem;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    margin-bottom: 50px;
-    position: relative;
-}
-
-.page-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 2px;
-    background-color: var(--white);
-    margin-top: 15px;
-}
-
-/* 2. PESTAÑA: INICIO (HERO SECTION) */
-.hero {
-    position: relative;
-    height: calc(100vh - 85px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 20px;
-    background: linear-gradient(rgba(15, 17, 21, 0.85), rgba(15, 17, 21, 0.95)), 
-                url('https://unsplash.com') no-repeat center center/cover;
-}
-
-.hero-content {
-    max-width: 900px;
-    animation: fadeIn 1.2s ease;
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
-    font-weight: 300;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    margin-bottom: 25px;
-    line-height: 1.2;
-}
-
-.hero-content p {
-    font-size: 1.1rem;
-    color: var(--gray-text);
-    letter-spacing: 1px;
-    max-width: 700px;
-    margin: 0 auto 40px auto;
-}
-
-.btn-primary {
-    display: inline-block;
-    padding: 15px 40px;
-    border: 1px solid var(--white);
-    color: var(--white);
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-    background: transparent;
-    transition: all 0.4s ease;
-    cursor: pointer;
-}
-
-.btn-primary:hover {
-    background-color: var(--white);
-    color: var(--dark-bg);
-}
-
-.nosotros-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    padding: 100px 0;
-}
-
-.nosotros-text p {
-    color: var(--gray-text);
-    font-size: 1.05rem;
-    margin-bottom: 20px;
-    text-align: justify;
-}
-
-/* 3. PESTAÑA: SERVICIOS (GRID EFICIENTE) */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-}
-
-.service-card {
-    background-color: var(--card-bg);
-    padding: 45px 35px;
-    border: 1px solid var(--border-color);
-    transition: transform 0.4s ease, border-color 0.4s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-.service-card h3 {
-    font-size: 1.4rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-}
-
-.service-card p {
-    color: var(--gray-text);
-    font-size: 0.95rem;
-    text-align: justify;
-}
-
-/* 4. PESTAÑA: CASOS DE ÉXITO (TARJETAS INDEPENDIENTES CON TIEMPO) */
-.cases-container {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.case-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    padding: 40px;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 40px;
-    align-items: start;
-}
-
-.case-time {
-    font-size: 1.1rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    color: var(--gray-text);
-    border-right: 1px solid var(--border-color);
-    padding-right: 20px;
-}
-
-.case-details h3 {
-    font-size: 1.6rem;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-}
-
-.case-info-block {
-    margin-bottom: 15px;
-}
-
-.case-info-block strong {
-    display: block;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-}
-
-.case-info-block p {
-    color: var(--gray-text);
-}
-
-/* 5. PESTAÑA: GALERÍA (IMÁGENES Y SOPORTE 3D EN IRAME) */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 30px;
-}
-
-.gallery-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    overflow: hidden;
-}
-
-.gallery-media {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    display: block;
-}
-
-/* Ajustes especiales para que los marcos 3D interactivos queden perfectos */
-.gallery-card iframe {
-    width: 100%;
-    height: 300px;
-    border: none;
-    display: block;
-}
-
-.gallery-info {
-    padding: 20px;
-}
-
-.gallery-info h4 {
-    font-size: 1.1rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* 6. PESTAÑA: CONTACTO */
-.contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-}
-
-.contact-info h3 {
-    font-size: 1.8rem;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 20px;
-}
-
-.contact-info p {
-    color: var(--gray-text);
-    margin-bottom: 30px;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.form-group input, .form-group textarea, .form-group select {
-    width: 100%;
-    padding: 15px;
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    color: var(--white);
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-    border-color: var(--white);
-}
-
-/* FOOTER GENERAL */
-footer {
-    background-color: #0b0c0e;
-    padding: 40px 20px;
-    text-align: center;
-    border-top: 1px solid var(--border-color);
-}
-
-footer p {
-    font-size: 0.8rem;
-    color: #565b66;
-    letter-spacing: 1px;
-}
-
-/* ANIMACIONES Y RESPONSIVO */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 992px) {
-    .nosotros-section, .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
-    .case-card { grid-template-columns: 1fr; gap: 20px; }
-    .case-time { border-right: none; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
-    .navbar { flex-direction: column; gap: 20px; padding: 20px; }
-    body { padding-top: 140px; }
-    .hero { height: calc(100vh - 140px); }
-}
-
-/* Layout Principal del Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #ffffff; /* Ajusta según el color de tu diseño */
-    position: relative;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* Centrado de la navegación */
-.nav-container {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center; /* Centra horizontalmente el menú */
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 20px; /* Espaciado entre elementos principales */
-    align-items: center;
-}
-
-.nav-links li {
-    position: relative; /* Esencial para el posicionamiento del desplegable */
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #333333;
-    font-weight: 500;
-    padding: 10px 15px;
-    display: block;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: #0056b3; /* Color primario al pasar el cursor o activo */
-}
-
-/* Flechas para el desplegable */
-.arrow {
-    font-size: 0.8em;
-    margin-left: 4px;
-}
-
-/* Estilos del Menú Desplegable (Dropdown) */
-.dropdown-menu {
-    display: none; /* Oculto por defecto */
-    position: absolute;
-    top: 100%; /* Aparece justo debajo del botón */
-    left: 0;
-    background-color: #ffffff;
-    min-width: 250px; /* Ancho suficiente para los nombres de servicios */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
-    padding: 10px 0;
-    list-style: none;
-    z-index: 1000;
-}
-
-.dropdown-menu li {
-    width: 100%;
-}
-
-.dropdown-menu li a {
-    padding: 10px 20px;
-    color: #333333;
-    font-size: 0.95rem;
-    white-space: nowrap;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.dropdown-menu li a:hover {
-    background-color: #f4f4f4;
-    color: #0056b3;
-}
-
-/* Mostrar el menú al pasar el cursor (Hover) */
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-/* Ajuste del logo en el Navbar */
-.logo-container img {
-    height: 45px; 
-    width: auto;
-    object-fit: contain;
-    margin-right: 10px;
-}
-
-/* Estructura Grid de 3 columnas para el Hero */
+/* ==========================================================================
+   HERO SECTION (Estructura de 3 columnas Full-Bleed)
+   ========================================================================== */
 .hero {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr; /* Laterales más estrechos, centro más ancho */
-    align-items: center;
-    gap: 2rem;
+    grid-template-columns: 1fr 2fr 1fr; /* Mantiene la proporción de columnas */
+    align-items: stretch; /* Estira los elementos para que ocupen toda la altura */
     min-height: 100vh;
-    padding: 120px 3% 0; /* Espacio superior para compensar el navbar fijo */
+    padding: 0; /* Eliminamos el padding lateral para que las imágenes toquen los bordes */
     background-color: var(--bg-main, #0f1115);
     overflow: hidden;
 }
 
-/* Contenedores de las imágenes laterales */
+/* Contenedores de las imágenes laterales (Más grandes y sin bordes) */
 .hero-image {
-    height: 65vh;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    height: 100vh;
+    width: 100%;
+    border-radius: 0; /* Quitamos los bordes redondeados */
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.8); /* Sombra interna para dar profundidad */
 }
 
 .hero-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.4) grayscale(50%); /* Filtro oscuro para no distraer del texto */
-    transition: filter 0.5s ease, transform 0.5s ease;
+    filter: brightness(0.35) grayscale(30%); /* Más oscuras para resaltar el centro */
+    transition: filter 0.6s ease, transform 0.6s ease;
 }
 
 .hero-image:hover img {
-    filter: brightness(0.9) grayscale(0%);
-    transform: scale(1.03);
+    filter: brightness(0.8) grayscale(0%);
+    transform: scale(1.05);
 }
 
-/* Ajustes del contenido central */
+/* Ajustes del contenido central (Texto perfectamente centrado) */
 .hero-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Centra verticalmente */
     text-align: center;
-    padding: 0 1rem;
+    padding: 80px 2rem 0; /* Empuja ligeramente hacia abajo para salvar el navbar */
+    height: 100%;
 }
 
 .hero-logo-center {
-    width: 130px;
+    width: 140px;
     margin-bottom: 2rem;
-    opacity: 0.9;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
 }
 
-/* Responsividad para móviles y tablets */
-@media (max-width: 1024px) {
-    .hero {
-        grid-template-columns: 1fr; /* Pasa a 1 sola columna */
-        height: auto;
-        padding-top: 140px;
-        padding-bottom: 4rem;
-    }
-    
-    .hero-image {
-        display: none; /* Oculta las imágenes laterales en pantallas pequeñas por limpieza visual */
-    }
-    
-    .hero-logo-center {
-        width: 100px;
-    }
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 3px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    max-width: 650px;
+    margin: 0 auto 3rem;
+    color: var(--text-muted);
 }

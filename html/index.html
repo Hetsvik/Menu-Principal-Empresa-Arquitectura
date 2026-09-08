@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGSG Construcciones | Inicio</title>
-    <link rel="stylesheet" href="../css/index.css">
-</head>
-<body>
-
-    <header>
+<header>
         <div class="navbar">
             <div class="logo-container">
-                <!-- Se agregó ../ para salir de la carpeta html -->
-                <img src="logo.png" alt="SGSG Logo">
+                <!-- CORREGIDO: Se agregó ../ para salir de la carpeta html -->
+                <img src="../logo.png" alt="SGSG Logo">
                 <span class="logo-text">SGSG</span>
             </div>
             
@@ -27,7 +17,7 @@
                             <li><a href="servicios.html#ingenieria">Ingeniería</a></li>
                             <li><a href="servicios.html#saneamiento">Abogados</a></li>
                             <li><a href="servicios.html#gestion">Construcción</a></li>
-                            <li><a href="servicios.html#asesoria">Consultoria</a></li>
+                            <li><a href="servicios.html#asesoria">Consultoría</a></li>
                         </ul>
                     </li>
 
@@ -41,84 +31,18 @@
 
     <section class="hero">
         <div class="hero-image">
-            <!-- Se agregó ../ para buscar el archivo en la raíz -->
             <img src="../edificio1.jpeg" alt="Proyecto Residencial SGSG">
         </div>
 
         <div class="hero-content">
-            <!-- Se agregó ../ -->
-            <img src="logo.png" alt="SGSG Logo Central" class="hero-logo-center">
+            <!-- CORREGIDO: Se agregó ../ para el nuevo logo central -->
+            <img src="../logo.png" alt="SGSG Logo Central" class="hero-logo-center">
             <h1>Construcción, Arquitectura y Asesoría Legal Integral</h1>
             <p>Fusionamos la precisión de la ingeniería, la visión del diseño arquitectónico vanguardista y el blindaje legal para materializar proyectos inmobiliarios de alta envergadura.</p>
             <a href="#contacto" class="btn-primary">Cotizar Proyecto</a>
         </div>
 
         <div class="hero-image">
-            <!-- Se agregó ../ -->
             <img src="../edificio2.jpeg" alt="Edificio Moderno SGSG">
         </div>
     </section>
-
-    <main class="main-container">
-        <section class="nosotros-section">
-            <div class="nosotros-title">
-                <h2 class="page-title">Quiénes<br>Somos</h2>
-            </div>
-            <div class="nosotros-text">
-                <p>En <strong>SGSG Construcciones Asesoramiento Técnico & Legal S.A.C.</strong>, no solo levantamos estructuras; construimos absoluta confianza y rentabilidad para nuestros inversionistas.</p>
-                <p>Somos una firma integral pionera capaz de unificar bajo un mismo estándar técnico la arquitectura creativa de vanguardia, el cálculo de ingeniería civil riguroso y un área especializada en saneamiento y defensa legal inmobiliaria. Garantizamos que tu inversión esté blindada desde el plano en papel hasta la entrega de llaves.</p>
-            </div>
-        </section>
-
-        <section id="contacto" class="contacto-section">
-            <div class="contacto-container">
-                <h2>Contáctanos</h2>
-                <p>Déjanos tus datos y nos comunicaremos contigo a la brevedad.</p>
-                
-                <form action="#" method="POST" class="contacto-form" id="formularioSGSG">
-                    <div class="form-group">
-                        <label for="nombre">Nombre completo:</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="telefono">Teléfono:</label>
-                        <input type="tel" id="telefono" name="telefono" placeholder="Ej. +51 999 999 999" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="correo">Correo electrónico:</label>
-                        <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="servicio">Tipo de servicio de interés:</label>
-                        <select id="servicio" name="servicio" required>
-                            <option value="" disabled selected>Selecciona una opción</option>
-                            <option value="arquitectura">Diseño & Arquitectura</option>
-                            <option value="ingenieria">Ingeniería & Construcción</option>
-                            <option value="saneamiento">Saneamiento Legal e Inmobiliario</option>
-                            <option value="gestion">Gestión de Proyectos (BIM)</option>
-                            <option value="asesoria">Asesoría Técnica Especializada</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="mensaje">Mensaje:</label>
-                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos brevemente sobre tu proyecto o consulta..." required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn-submit">Enviar mensaje</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 SGSG Construcciones Asesoramiento Técnico & Legal S.A.C. Todos los derechos reservados.</p>
-    </footer>
-
-    <script src="../javascript/form.js"></script>
-
-</body>
-</html>
