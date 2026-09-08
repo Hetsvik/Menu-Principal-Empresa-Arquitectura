@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | SGSG Construcciones</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-logo"><span>▲</span> SGSG</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="casos-exito.html">Casos de Éxito</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+            <li><a href="contacto.html" class="active">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section class="container">
+        <h1 class="section-title">Iniciemos tu Proyecto</h1>
+        
+        <form class="contact-form" id="formularioCotizacion">
+            <div class="form-group">
+                <label for="nombre">Nombre Completo / Empresa</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ej: Constructora ABC S.A.C.">
+            </div>
+            
+            <div class="form-group">
+                <label for="correo">Correo Electrónico</label>
+                <input type="email" id="correo" name="correo" required placeholder="correo@empresa.com">
+            </div>
+
+            <div class="form-group">
+                <label for="servicio">Servicio de Interés Principal</label>
+                <select id="servicio" name="servicio" required>
+                    <option value="" disabled selected>Seleccione un área...</option>
+                    <option value="arquitectura">Arquitectura y Diseño</option>
+                    <option value="ingenieria">Ingeniería y Estructuras</option>
+                    <option value="legal">Asesoramiento Legal Inmobiliario</option>
+                    <option value="consultoria">Consultoría de Proyectos</option>
+                    <option value="construccion">Ejecución de Obra</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="mensaje">Detalles del Proyecto / Desafío</label>
+                <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Describa brevemente lo que necesita..."></textarea>
+            </div>
+
+            <button type="submit" class="btn" style="width: 100%;">Enviar Solicitud de Cotización</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 SGSG Construcciones. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- SCRIPT DE VALIDACIÓN Y ALERTA -->
+    <script>
+        document.getElementById('formularioCotizacion').addEventListener('submit', function(e) {
+            // Evitamos que la página se recargue (simulando envío asíncrono)
+            e.preventDefault();
+            
+            // Alerta nativa
+            alert('¡Gracias por contactarnos! Tu solicitud ha sido registrada en nuestro sistema corporativo. Un asesor técnico o legal se comunicará contigo a la brevedad.');
+            
+            // Limpiamos el formulario
+            this.reset();
+        });
+    </script>
+</body>
+</html>
