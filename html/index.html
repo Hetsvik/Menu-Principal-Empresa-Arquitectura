@@ -11,8 +11,8 @@
     <header>
         <div class="navbar">
             <div class="logo-container">
-                <!-- Ruta corregida para el logo de la barra de navegación -->
-                <img src="logo.jpg" alt="SGSG Logo">
+                <!-- Se agregó ../ para salir de la carpeta html -->
+                <img src="../logo.jpg" alt="SGSG Logo">
                 <span class="logo-text">SGSG</span>
             </div>
             
@@ -20,7 +20,6 @@
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Inicio</a></li>
                     
-                    <!-- Menú Desplegable de Servicios -->
                     <li class="dropdown">
                         <a href="servicios.html" class="dropdown-toggle">Servicios <span class="arrow">&#9662;</span></a>
                         <ul class="dropdown-menu">
@@ -34,32 +33,29 @@
 
                     <li><a href="casosdeexito.html">Casos de Éxito</a></li>
                     <li><a href="galeria.html">Galería 3D</a></li>
-                    <!-- Enlace actualizado para que apunte al ID de la sección -->
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- NUEVA ESTRUCTURA HERO A 3 COLUMNAS -->
     <section class="hero">
-        <!-- Imagen lateral izquierda -->
         <div class="hero-image">
-            <img src="edificio1.jpeg" alt="Proyecto Residencial SGSG">
+            <!-- Se agregó ../ para buscar el archivo en la raíz -->
+            <img src="../edificio1.jpeg" alt="Proyecto Residencial SGSG">
         </div>
 
-        <!-- Contenido central -->
         <div class="hero-content">
-            <!-- Logo central elegante -->
-            <img src="logo.jpg" alt="SGSG Logo Central" class="hero-logo-center">
+            <!-- Se agregó ../ -->
+            <img src="../logo.jpg" alt="SGSG Logo Central" class="hero-logo-center">
             <h1>Construcción, Arquitectura y Asesoría Legal Integral</h1>
             <p>Fusionamos la precisión de la ingeniería, la visión del diseño arquitectónico vanguardista y el blindaje legal para materializar proyectos inmobiliarios de alta envergadura.</p>
             <a href="#contacto" class="btn-primary">Cotizar Proyecto</a>
         </div>
 
-        <!-- Imagen lateral derecha -->
         <div class="hero-image">
-            <img src="edificio2.jpeg" alt="Edificio Moderno SGSG">
+            <!-- Se agregó ../ -->
+            <img src="../edificio2.jpeg" alt="Edificio Moderno SGSG">
         </div>
     </section>
 
@@ -74,13 +70,11 @@
             </div>
         </section>
 
-        <!-- NUEVA SECCIÓN DE CONTACTO -->
         <section id="contacto" class="contacto-section">
             <div class="contacto-container">
                 <h2>Contáctanos</h2>
                 <p>Déjanos tus datos y nos comunicaremos contigo a la brevedad.</p>
                 
-                <!-- Agregado el ID 'formularioSGSG' para que funcione con el JavaScript de validación -->
                 <form action="#" method="POST" class="contacto-form" id="formularioSGSG">
                     <div class="form-group">
                         <label for="nombre">Nombre completo:</label>
@@ -124,7 +118,6 @@
         <p>&copy; 2026 SGSG Construcciones Asesoramiento Técnico & Legal S.A.C. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Script de validación del formulario -->
     <script src="../javascript/form.js"></script>
 
 </body>
