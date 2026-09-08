@@ -9,11 +9,10 @@
 <body>
 
     <header>
-        <header>
         <div class="navbar">
             <div class="logo-container">
                 <img src="../logo-constructora.png" alt="SGSG Logo">
-                <span class="logo-text">SGSG</span>s
+                <span class="logo-text">SGSG</span>
             </div>
             
             <nav class="nav-container">
@@ -34,18 +33,19 @@
 
                     <li><a href="casosdeexito.html">Casos de Éxito</a></li>
                     <li><a href="galeria.html">Galería 3D</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
+                    <!-- Enlace actualizado para que apunte al ID de la sección -->
+                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
         </div>
-    </header>
     </header>
 
     <section class="hero">
         <div class="hero-content">
             <h1>Construcción, Arquitectura y Asesoría Legal Integral</h1>
             <p>Fusionamos la precisión de la ingeniería, la visión del diseño arquitectónico vanguardista y el blindaje legal para materializar proyectos inmobiliarios de alta envergadura.</p>
-            <a href="contacto.html" class="btn-primary">Cotizar Proyecto</a>
+            <!-- También actualizado para que baje al formulario -->
+            <a href="#contacto" class="btn-primary">Cotizar Proyecto</a>
         </div>
     </section>
 
@@ -57,6 +57,50 @@
             <div class="nosotros-text">
                 <p>En <strong>SGSG Construcciones Asesoramiento Técnico & Legal S.A.C.</strong>, no solo levantamos estructuras; construimos absoluta confianza y rentabilidad para nuestros inversionistas.</p>
                 <p>Somos una firma integral pionera capaz de unificar bajo un mismo estándar técnico la arquitectura creativa de vanguardia, el cálculo de ingeniería civil riguroso y un área especializada en saneamiento y defensa legal inmobiliaria. Garantizamos que tu inversión esté blindada desde el plano en papel hasta la entrega de llaves.</p>
+            </div>
+        </section>
+
+        <!-- NUEVA SECCIÓN DE CONTACTO -->
+        <section id="contacto" class="contacto-section">
+            <div class="contacto-container">
+                <h2>Contáctanos</h2>
+                <p>Déjanos tus datos y nos comunicaremos contigo a la brevedad.</p>
+                
+                <form action="#" method="POST" class="contacto-form">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Ej. +51 999 999 999" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="correo">Correo electrónico:</label>
+                        <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="servicio">Tipo de servicio de interés:</label>
+                        <select id="servicio" name="servicio" required>
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="arquitectura">Diseño & Arquitectura</option>
+                            <option value="ingenieria">Ingeniería & Construcción</option>
+                            <option value="saneamiento">Saneamiento Legal e Inmobiliario</option>
+                            <option value="gestion">Gestión de Proyectos (BIM)</option>
+                            <option value="asesoria">Asesoría Técnica Especializada</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos brevemente sobre tu proyecto o consulta..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Enviar mensaje</button>
+                </form>
             </div>
         </section>
     </main>
