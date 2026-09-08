@@ -9,21 +9,36 @@
 <body>
 
     <header>
+        <header>
         <div class="navbar">
             <div class="logo-container">
                 <img src="../logo-constructora.png" alt="SGSG Logo">
-                <span class="logo-text">SGSG</span>
+                <span class="logo-text">SGSG</span>s
             </div>
-            <nav>
-                <ul>
+            
+            <nav class="nav-container">
+                <ul class="nav-links">
                     <li><a href="index.html" class="active">Inicio</a></li>
-                    <li><a href="servicios.html">Servicios</a></li>
+                    
+                    <!-- Menú Desplegable de Servicios -->
+                    <li class="dropdown">
+                        <a href="servicios.html" class="dropdown-toggle">Servicios <span class="arrow">&#9662;</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="servicios.html#arquitectura">Diseño & Arquitectura</a></li>
+                            <li><a href="servicios.html#ingenieria">Ingeniería & Construcción</a></li>
+                            <li><a href="servicios.html#saneamiento">Saneamiento Legal e Inmobiliario</a></li>
+                            <li><a href="servicios.html#gestion">Gestión de Proyectos (BIM)</a></li>
+                            <li><a href="servicios.html#asesoria">Asesoría Técnica Especializada</a></li>
+                        </ul>
+                    </li>
+
                     <li><a href="casosdeexito.html">Casos de Éxito</a></li>
                     <li><a href="galeria.html">Galería 3D</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
         </div>
+    </header>
     </header>
 
     <section class="hero">
