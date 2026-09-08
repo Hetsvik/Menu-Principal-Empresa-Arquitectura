@@ -279,7 +279,89 @@ a {
     margin: 0 auto 3rem;
     color: var(--text-muted);
 }
+/* ==========================================================================
+   4.1 SECCIÓN NOSOTROS (Alineación Centro - Izquierda)
+   ========================================================================== */
+.nosotros-section {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr; /* Columna del título más pequeña que el texto */
+    gap: 4rem;
+    align-items: center; /* Centrado vertical absoluto entre título y texto */
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 5%;
+}
 
+/* Título Alineado a la Izquierda */
+.nosotros-title {
+    text-align: left;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    color: var(--text-main);
+    text-transform: uppercase;
+    position: relative;
+}
+
+/* Detalle de línea decorativa opcional estilo arquitectónico */
+.page-title::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+/* Bloque de Texto alineado hacia la izquierda en su columna */
+.nosotros-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left; /* Alineado a la izquierda para mejor lectura */
+    border-left: 1px solid rgba(255, 255, 255, 0.08); /* Fina línea separadora vertical */
+    padding-left: 3rem;
+}
+
+.nosotros-text p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.nosotros-text p:last-child {
+    margin-bottom: 0;
+}
+
+.nosotros-text strong {
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+/* Adaptación para pantallas pequeñas (Tablet y Móvil) */
+@media (max-width: 868px) {
+    .nosotros-section {
+        grid-template-columns: 1fr; /* Pasa a una sola columna */
+        gap: 2rem;
+        padding: 4rem 5%;
+    }
+
+    .nosotros-text {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 2rem;
+    }
+
+    .page-title {
+        font-size: 2.2rem;
+    }
+}
 
 /* ==========================================================================
    5. TARJETAS (Servicios y Casos de Éxito)
