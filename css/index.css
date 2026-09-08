@@ -62,3 +62,87 @@
     margin: 0 auto 3rem;
     color: var(--text-muted);
 }
+/* --- ANIMACIÓN DE DESPLAZAMIENTO SUAVE --- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- ESTILOS DE LA SECCIÓN DE CONTACTO --- */
+.contacto-section {
+    padding: 4rem 2rem;
+    background-color: #f4f7f6; /* Fondo sutil para diferenciar la sección */
+}
+
+.contacto-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.contacto-container h2 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.contacto-container p {
+    text-align: center;
+    color: #666666;
+    margin-bottom: 2rem;
+}
+
+.contacto-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contacto-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333333;
+}
+
+.contacto-form input,
+.contacto-form select,
+.contacto-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-family: inherit; /* Hereda la tipografía de tu web */
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.contacto-form input:focus,
+.contacto-form select:focus,
+.contacto-form textarea:focus {
+    outline: none;
+    border-color: #0056b3; /* Color de tu marca */
+}
+
+.contacto-form textarea {
+    resize: vertical; /* Permite al usuario agrandar la caja solo hacia abajo */
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background-color: #0056b3; /* Color de tu marca */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #004494; /* Color más oscuro al pasar el cursor */
+}
