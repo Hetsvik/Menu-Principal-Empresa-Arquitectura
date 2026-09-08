@@ -69,31 +69,30 @@
             </div>
         </section>
 
-        <section id="contacto" class="contacto-section">
-            <div class="contacto-container">
-                <h2>Contáctanos</h2>
-                <p>Déjanos tus datos y nos comunicaremos contigo a la brevedad.</p>
-                
-                <form action="#" method="POST" class="contacto-form" id="formularioSGSG">
+    <section id="contacto" class="contacto-section">
+    <div class="contacto-container">
+        <!-- Columna Izquierda: Formulario -->
+        <div class="contacto-col-form">
+            <span class="contacto-subtitle">Formulario de Contacto</span>
+            <h2 class="contacto-title">Solicitar una Cotización</h2>
+            
+            <form action="#" method="POST" class="contacto-form" id="formularioSGSG">
+                <div class="form-grid">
                     <div class="form-group">
-                        <label for="nombre">Nombre completo:</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="telefono">Teléfono:</label>
-                        <input type="tel" id="telefono" name="telefono" placeholder="Ej. +51 999 999 999" required>
+                        <input type="email" id="correo" name="correo" placeholder="Correo" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="correo">Correo electrónico:</label>
-                        <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Telf" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="servicio">Tipo de servicio de interés:</label>
                         <select id="servicio" name="servicio" required>
-                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="" disabled selected>Selecciona Servicio</option>
                             <option value="arquitectura">Diseño & Arquitectura</option>
                             <option value="ingenieria">Ingeniería & Construcción</option>
                             <option value="saneamiento">Saneamiento Legal e Inmobiliario</option>
@@ -101,16 +100,37 @@
                             <option value="asesoria">Asesoría Técnica Especializada</option>
                         </select>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="mensaje">Mensaje:</label>
-                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos brevemente sobre tu proyecto o consulta..." required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn-submit">Enviar mensaje</button>
-                </form>
+                </div>
+
+                <div class="form-group full-width">
+                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Mensaje" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn-submit">Enviar Mensaje &rarr;</button>
+            </form>
+        </div>
+
+        <!-- Columna Derecha: Información de contacto -->
+        <div class="contacto-col-info">
+            <div class="info-item">
+                <h3>Ubícanos en:</h3>
+                <p>Jirón Loreto 435, Lima 15024, Perú</p>
             </div>
-        </section>
+
+            <div class="info-item">
+                <h3>Más Información:</h3>
+                <p>+51 968 404 653</p>
+                <p>constructora@albins.com.pe</p>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="social-btn" aria-label="Facebook">f</a>
+                <a href="#" class="social-btn" aria-label="Instagram">📷</a>
+                <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
+            </div>
+        </div>
+        </div>
+    </section>
     </main>
 
     <footer>

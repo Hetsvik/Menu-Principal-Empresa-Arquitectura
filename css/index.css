@@ -1,6 +1,7 @@
 /* ==========================================================================
    1. VARIABLES Y CONFIGURACIÓN BASE (Tema Oscuro Minimalista)
    ========================================================================== */
+/* Código base estructurado y actualizado[cite: 1] */
 :root {
     --bg-main: #0f1115;       /* Fondo principal muy oscuro */
     --bg-card: #16191f;       /* Fondo de tarjetas y elementos */
@@ -46,10 +47,11 @@ a {
     top: 0;
     left: 0;
     width: 100%;
+    height: 90px; /* Altura profesional incrementada para respiración del diseño */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 6%;
+    padding: 0 6%; /* Removido el padding vertical para respetar el height fijo */
     background-color: rgba(15, 17, 21, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
@@ -60,21 +62,21 @@ a {
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px; /* Mayor separación para elegancia */
     z-index: 2;
 }
 
 .logo-container img {
-    height: 45px;
+    height: 65px; /* Tamaño de logo corporativo premium */
     width: auto;
     object-fit: contain;
 }
 
 .logo-text {
     color: var(--text-main);
-    font-size: 1.1rem;
-    font-weight: 500;
-    letter-spacing: 1px;
+    font-size: 1.3rem; /* Escala aumentada */
+    font-weight: 700; /* Mayor grosor para presencia de marca */
+    letter-spacing: 3px;
 }
 
 /* Enlaces Principales */
@@ -208,17 +210,16 @@ a {
 
 
 /* ==========================================================================
-   4. HERO SECTION
+   4. HERO SECTION (Estructura Full-Bleed de 3 Columnas)
    ========================================================================== */
 .hero {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    align-items: center;
-    gap: 2rem;
+    grid-template-columns: 1fr 1.5fr 1fr; /* Proporción para resaltar el centro */
+    align-items: stretch; /* Estira las imágenes hasta los bordes superior e inferior */
+    gap: 0; /* Sin separaciones para diseño premium continuo */
     min-height: 100vh;
-    padding: 120px 3% 0;
+    padding: 90px 0 0 0; /* Compensación exacta de 90px por la barra de navegación, márgenes laterales en 0 */
     
-    /* Imagen de fondo con gradiente oscuro para legibilidad */
     background: linear-gradient(rgba(15, 17, 21, 0.85), rgba(15, 17, 21, 0.9)), 
                 url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070') center/cover no-repeat fixed;
     
@@ -226,49 +227,52 @@ a {
 }
 
 .hero-image {
-    height: 65vh;
-    border-radius: 8px;
+    height: 100%;
+    width: 100%;
+    border-radius: 0; /* Eliminados bordes redondeados para que toquen los extremos de la pantalla */
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8); /* Sombra interna para dar profundidad */
 }
 
 .hero-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.4) grayscale(50%);
-    transition: filter 0.5s ease, transform 0.5s ease;
+    filter: brightness(0.35) grayscale(40%); /* Oscurecidas ligeramente para destacar el contenido central */
+    transition: filter 0.6s ease, transform 0.6s ease;
 }
 
 .hero-image:hover img {
-    filter: brightness(0.9) grayscale(0%);
-    transform: scale(1.03);
+    filter: brightness(0.8) grayscale(0%);
+    transform: scale(1.05);
 }
 
 .hero-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Centrado absoluto vertical */
     text-align: center;
-    padding: 0 1rem;
+    padding: 0 3rem;
 }
 
 .hero-logo-center {
-    width: 130px;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+    width: 250px; /* Escala imponente para impacto de marca */
+    margin-bottom: 2.5rem;
+    opacity: 1; /* Transparencia eliminada para máxima nitidez */
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6)); /* Sombra acorde al nuevo tamaño */
 }
 
 .hero-content h1 {
-    font-size: 4rem;
+    font-size: 3.5rem; /* Ajustado ligeramente para balancear con el logo grande */
     margin-bottom: 1.5rem;
     letter-spacing: 4px;
+    line-height: 1.2;
 }
 
 .hero-content p {
     font-size: 1.1rem;
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto 3rem;
     color: var(--text-muted);
 }
@@ -371,43 +375,170 @@ a {
 /* ==========================================================================
    7. FORMULARIO DE CONTACTO
    ========================================================================== */
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: var(--bg-card);
-    padding: 3rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+/* ==========================================================================
+   7. FORMULARIO DE CONTACTO (Diseño Compacto en 2 Columnas)
+   ========================================================================== */
+.contacto-section {
+    padding: 5rem 5%;
+    display: flex;
+    justify-content: center;
 }
 
-.form-group {
-    margin-bottom: 2rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-main);
-}
-
-.form-group input, 
-.form-group select, 
-.form-group textarea {
+.contacto-container {
+    max-width: 950px; /* Tamaño reducido y centrado */
     width: 100%;
-    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr; /* Formulario a la izquierda, info a la derecha */
+    gap: 3.5rem;
+    align-items: start;
+    background-color: var(--bg-card);
+    padding: 3.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+}
+
+/* Títulos */
+.contacto-subtitle {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.contacto-title {
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+/* Grid interna de inputs (2 columnas para nombre/correo y telf/servicio) */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.contacto-form .form-group {
+    margin-bottom: 0;
+}
+
+.form-group.full-width {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Estilo compacto de Inputs/Select/Textarea */
+.contacto-form input,
+.contacto-form select,
+.contacto-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
     background-color: var(--bg-main);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
     color: var(--text-main);
+    font-size: 0.85rem;
     transition: var(--transition);
 }
 
-.form-group input:focus, 
-.form-group select:focus, 
-.form-group textarea:focus {
+.contacto-form input::placeholder,
+.contacto-form textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.contacto-form input:focus, 
+.contacto-form select:focus, 
+.contacto-form textarea:focus {
     outline: none;
     border-color: var(--accent);
+}
+
+/* Botón compacto */
+.btn-submit {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--bg-main);
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-submit:hover {
+    background-color: var(--accent-hover);
+}
+
+/* Columna de Información (Derecha) */
+.contacto-col-info {
+    padding-top: 2rem;
+}
+
+.info-item {
+    margin-bottom: 1.8rem;
+}
+
+.info-item h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.4rem;
+}
+
+.info-item p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* Botones Redes Sociales */
+.social-links {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 2.5rem;
+}
+
+.social-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-main);
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+.social-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* Ajuste Responsive para móviles */
+@media (max-width: 768px) {
+    .contacto-container {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.5rem;
+        gap: 2rem;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contacto-col-info {
+        padding-top: 0;
+    }
 }
 
 
@@ -436,6 +567,7 @@ footer {
     .navbar {
         flex-direction: column;
         padding: 1rem;
+        height: auto; /* Permite que la barra crezca en móvil */
         gap: 1rem;
     }
 
@@ -449,7 +581,7 @@ footer {
     .hero {
         grid-template-columns: 1fr;
         height: auto;
-        padding-top: 140px;
+        padding-top: 150px; /* Mayor compensación por la barra expandida en móvil */
         padding-bottom: 4rem;
     }
 
@@ -458,7 +590,7 @@ footer {
     }
 
     .hero-logo-center {
-        width: 100px;
+        width: 180px; /* Logo adaptado a formato móvil */
     }
 
     .hero-content h1 {
