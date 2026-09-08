@@ -237,14 +237,17 @@ a {
 .hero-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    filter: brightness(0.35) grayscale(40%); /* Oscurecidas ligeramente para destacar el contenido central */
+    /* 'contain' muestra la imagen completa. Para ajustar encuadre exacto usa contain/cover según prefieras */
+    object-fit: cover; 
+    object-position: center center; /* Centra el encuadre de la imagen */
+    filter: brightness(0.35) grayscale(40%);
     transition: filter 0.6s ease, transform 0.6s ease;
 }
 
+/* Hover sin hacer zoom (scale) para mantener el encuadre */
 .hero-image:hover img {
     filter: brightness(0.8) grayscale(0%);
-    transform: scale(1.05);
+    transform: translateY(-5px); /* Pequeño desplazamiento elegante en lugar de zoom */
 }
 
 .hero-content {
@@ -374,9 +377,6 @@ a {
 
 /* ==========================================================================
    7. FORMULARIO DE CONTACTO
-   ========================================================================== */
-/* ==========================================================================
-   7. FORMULARIO DE CONTACTO (Diseño Compacto en 2 Columnas)
    ========================================================================== */
 .contacto-section {
     padding: 5rem 5%;
