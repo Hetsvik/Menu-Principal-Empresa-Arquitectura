@@ -1,148 +1,381 @@
 /* ==========================================================================
-   HERO SECTION (Estructura de 3 columnas Full-Bleed)
+   VARIABLES CORPORATIVAS Y CONFIGURACIÓN BASE (Tema Oscuro Minimalista)
+   ========================================================================== */
+:root {
+    --bg-main: #0f1115; /* Fondo principal muy oscuro */
+    --bg-card: #16191f; /* Fondo de tarjetas y elementos */
+    --text-main: #ffffff; /* Textos principales */
+    --text-muted: #8a929e; /* Textos secundarios y párrafos */
+    --accent: #c5a880; /* Dorado sutil arquitectónico */
+    --accent-hover: #e0c298;
+    --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-muted);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    color: var(--text-main);
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+/* ==========================================================================
+   BARRA DE NAVEGACIÓN (Sticky, estilo premium)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(15, 17, 21, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 6%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--text-main);
+}
+
+.nav-links a.active {
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 4px;
+}
+
+/* ==========================================================================
+   ESTRUCTURA GENERAL Y BOTONES
+   ========================================================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8rem 5% 4rem; /* Padding superior alto para compensar el navbar fijo */
+}
+
+.section-title {
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--accent);
+    padding: 1rem 2.5rem;
+    border: 1px solid var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background-color: var(--accent);
+    color: var(--bg-main);
+}
+
+/* ==========================================================================
+   HERO SECTION (index.html)
    ========================================================================== */
 .hero {
+    height: 100vh;
+    background: linear-gradient(rgba(15, 17, 21, 0.7), rgba(15, 17, 21, 0.9)), 
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 5%;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 4px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   TARJETAS MINIMALISTAS (Servicios y Casos de Éxito)
+   ========================================================================== */
+.grid-cards {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr; /* Mantiene la proporción de columnas */
-    align-items: stretch; /* Estira los elementos para que ocupen toda la altura */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--bg-card);
+    padding: 3rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(197, 168, 128, 0.3); /* Brillo dorado sutil */
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+
+.case-meta {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 0.5rem;
+}
+
+.case-detail {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.case-detail strong {
+    color: var(--text-main);
+    font-weight: normal;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+/* ==========================================================================
+   GALERÍA GRID
+   ========================================================================== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    background-color: var(--bg-card);
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item img, .gallery-item iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    opacity: 0.8;
+    transition: var(--transition);
+}
+
+.gallery-item:hover img {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(transparent, rgba(15,17,21,0.9));
+    color: var(--text-main);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   FORMULARIO (contacto.html)
+   ========================================================================== */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--bg-card);
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-main);
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--bg-main);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+    transition: var(--transition);
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* ==========================================================================
+   FOOTER Y MEDIA QUERIES
+   ========================================================================== */
+footer {
+    text-align: center;
+    padding: 3rem 5%;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .nav-links {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Ajuste del logo en el Navbar */
+.logo-container img {
+    height: 45px; 
+    width: auto;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+/* Estructura Grid de 3 columnas para el Hero */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* Laterales más estrechos, centro más ancho */
+    align-items: center;
+    gap: 2rem;
     min-height: 100vh;
-    padding: 0; /* Eliminamos el padding lateral para que las imágenes toquen los bordes */
+    padding: 120px 3% 0; /* Espacio superior para compensar el navbar fijo */
     background-color: var(--bg-main, #0f1115);
     overflow: hidden;
 }
 
-/* Contenedores de las imágenes laterales (Más grandes y sin bordes) */
+/* Contenedores de las imágenes laterales */
 .hero-image {
-    height: 100vh;
-    width: 100%;
-    border-radius: 0; /* Quitamos los bordes redondeados */
-    box-shadow: inset 0 0 50px rgba(0,0,0,0.8); /* Sombra interna para dar profundidad */
+    height: 65vh;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .hero-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.35) grayscale(30%); /* Más oscuras para resaltar el centro */
-    transition: filter 0.6s ease, transform 0.6s ease;
+    filter: brightness(0.4) grayscale(50%); /* Filtro oscuro para no distraer del texto */
+    transition: filter 0.5s ease, transform 0.5s ease;
 }
 
 .hero-image:hover img {
-    filter: brightness(0.8) grayscale(0%);
-    transform: scale(1.05);
+    filter: brightness(0.9) grayscale(0%);
+    transform: scale(1.03);
 }
 
-/* Ajustes del contenido central (Texto perfectamente centrado) */
+/* Ajustes del contenido central */
 .hero-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Centra verticalmente */
     text-align: center;
-    padding: 80px 2rem 0; /* Empuja ligeramente hacia abajo para salvar el navbar */
-    height: 100%;
+    padding: 0 1rem;
 }
 
 .hero-logo-center {
-    width: 140px;
+    width: 130px;
     margin-bottom: 2rem;
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+    opacity: 0.9;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
 }
 
-.hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    letter-spacing: 3px;
-    line-height: 1.2;
-}
-
-.hero-content p {
-    font-size: 1.1rem;
-    max-width: 650px;
-    margin: 0 auto 3rem;
-    color: var(--text-muted);
-}
-/* --- ANIMACIÓN DE DESPLAZAMIENTO SUAVE --- */
-html {
-    scroll-behavior: smooth;
-}
-
-/* --- ESTILOS DE LA SECCIÓN DE CONTACTO --- */
-.contacto-section {
-    padding: 4rem 2rem;
-    background-color: #f4f7f6; /* Fondo sutil para diferenciar la sección */
-}
-
-.contacto-container {
-    max-width: 700px;
-    margin: 0 auto;
-    background: #ffffff;
-    padding: 2.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-.contacto-container h2 {
-    text-align: center;
-    color: #333333;
-    margin-bottom: 0.5rem;
-    font-size: 2rem;
-}
-
-.contacto-container p {
-    text-align: center;
-    color: #666666;
-    margin-bottom: 2rem;
-}
-
-.contacto-form .form-group {
-    margin-bottom: 1.5rem;
-}
-
-.contacto-form label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: #333333;
-}
-
-.contacto-form input,
-.contacto-form select,
-.contacto-form textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    font-family: inherit; /* Hereda la tipografía de tu web */
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-.contacto-form input:focus,
-.contacto-form select:focus,
-.contacto-form textarea:focus {
-    outline: none;
-    border-color: #0056b3; /* Color de tu marca */
-}
-
-.contacto-form textarea {
-    resize: vertical; /* Permite al usuario agrandar la caja solo hacia abajo */
-}
-
-.btn-submit {
-    display: block;
-    width: 100%;
-    padding: 14px;
-    background-color: #0056b3; /* Color de tu marca */
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.btn-submit:hover {
-    background-color: #004494; /* Color más oscuro al pasar el cursor */
+/* Responsividad para móviles y tablets */
+@media (max-width: 1024px) {
+    .hero {
+        grid-template-columns: 1fr; /* Pasa a 1 sola columna */
+        height: auto;
+        padding-top: 140px;
+        padding-bottom: 4rem;
+    }
+    
+    .hero-image {
+        display: none; /* Oculta las imágenes laterales en pantallas pequeñas por limpieza visual */
+    }
+    
+    .hero-logo-center {
+        width: 100px;
+    }
 }
