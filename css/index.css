@@ -379,3 +379,245 @@ footer {
         width: 100px;
     }
 }
+/* Layout Principal del Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffffff; /* Ajusta según el color de tu diseño */
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Centrado de la navegación */
+.nav-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el menú */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px; /* Espaciado entre elementos principales */
+    align-items: center;
+}
+
+.nav-links li {
+    position: relative; /* Esencial para el posicionamiento del desplegable */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333333;
+    font-weight: 500;
+    padding: 10px 15px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #0056b3; /* Color primario al pasar el cursor o activo */
+}
+
+/* Flechas para el desplegable */
+.arrow {
+    font-size: 0.8em;
+    margin-left: 4px;
+}
+
+/* Estilos del Menú Desplegable (Dropdown) */
+.dropdown-menu {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 100%; /* Aparece justo debajo del botón */
+    left: 0;
+    background-color: #ffffff;
+    min-width: 250px; /* Ancho suficiente para los nombres de servicios */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    padding: 10px 0;
+    list-style: none;
+    z-index: 1000;
+}
+
+.dropdown-menu li {
+    width: 100%;
+}
+
+.dropdown-menu li a {
+    padding: 10px 20px;
+    color: #333333;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f4f4f4;
+    color: #0056b3;
+}
+
+/* Mostrar el menú al pasar el cursor (Hover) */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+/* ==========================================================================
+   BARRA DE NAVEGACIÓN (Sticky, centrada y optimizada para tema oscuro)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 6%;
+    background-color: rgba(15, 17, 21, 0.95); /* Tema oscuro unificado */
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 2;
+}
+
+.logo-container img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    color: var(--text-main);
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* Centrado perfecto del menú mediante posicionamiento absoluto */
+.nav-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 8px 0;
+    display: block;
+    transition: var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--text-main);
+}
+
+.nav-links a.active {
+    border-bottom: 1px solid var(--accent);
+}
+
+/* Flechas para el desplegable */
+.arrow {
+    font-size: 0.7em;
+    margin-left: 4px;
+    color: var(--accent);
+}
+
+/* Estilos del Menú Desplegable (Dropdown) adaptado al tema oscuro */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%); /* Centra el desplegable bajo el botón Servicios */
+    background-color: var(--bg-card);
+    min-width: 280px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    padding: 0.8rem 0;
+    list-style: none;
+    z-index: 1000;
+}
+
+.dropdown-menu li {
+    width: 100%;
+}
+
+.dropdown-menu li a {
+    padding: 10px 20px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: none; /* Mantiene legibilidad para nombres de servicios */
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.dropdown-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: var(--accent);
+    padding-left: 25px; /* Efecto sutil de desplazamiento al hacer hover */
+}
+
+/* Mostrar menú al pasar el cursor */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Ajustes Responsive para la navegación */
+@media (max-width: 1024px) {
+    .nav-container {
+        position: static;
+        transform: none;
+    }
+    
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
