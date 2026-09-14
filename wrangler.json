@@ -1,10 +1,8 @@
 {
   "name": "menu-principal-empresa-arquitectura",
   "compatibility_date": "2026-09-11",
-  "observability": {
-    "enabled": true
-  },
   "assets": {
-    "directory": "./"
+    "directory": "./",
+    "html_handling": "drop-trailing-slash"
   }
 }
