@@ -7,44 +7,84 @@
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
+    <header>
+        <div class="navbar">
+            <div class="logo-container">
+                <img src="../logo.png" alt="SGSG Logo">
+                <span class="logo-text">SGSG</span>
+            </div>
 
-    <nav class="navbar">
-        <div class="nav-logo"><span>▲</span> SGSG</div>
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="servicios.html">Servicios</a></li>
-            <li><a href="casos-exito.html" class="active">Casos de Éxito</a></li>
-            <li><a href="galeria.html">Galería</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
+            <nav class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle">Servicios <span class="arrow">&#9662;</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="servicios/arquitectura.html">Arquitectura</a></li>
+                            <li><a href="servicios/abogados.html">Abogados</a></li>
+                            <li><a href="servicios/ingenieria.html">Ingeniería</a></li>
+                            <li><a href="servicios/construccion.html">Construcción</a></li>
+                            <li><a href="servicios/consultoria.html">Consultoría</a></li>
+                        </ul>
+                    </li>
 
-    <section class="container">
+                    <li><a href="casosdeexito.html" class="active">Casos de Éxito</a></li>
+                    <li><a href="galeria.html">Galería 3D</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container" style="padding-bottom: 80px;">
         <h1 class="section-title">Portafolio de Logros</h1>
-        
-        <div class="grid-cards">
-            <!-- Caso 1 -->
-            <div class="case-card">
-                <div class="case-meta">Duración: 18 Meses | Culminado: Dic 2025</div>
-                <h3>Torre Comercial Alta Vista</h3>
-                <p><strong>Desafío Técnico/Legal:</strong> Terreno con superposición de áreas en registros públicos y suelo con alta napa freática que impedía la excavación de sótanos.</p>
-                <p><strong>Resultado Final:</strong> El equipo legal logró el saneamiento registral en tiempo récord. La ingeniería implementó muros pantalla, permitiendo entregar un edificio corporativo de 15 pisos seguro y 100% saneado.</p>
+        <p style="text-align: center; color: #aaa; margin-bottom: 50px; font-size: 16px;">Explora la trayectoria y resolución de nuestros proyectos más emblemáticos.</p>
+
+        <div class="cases-wrapper">
+            <!-- CASO 1: Imagen a la izquierda, Texto a la derecha -->
+            <div class="case-row">
+                <img src="../edificio1.jpeg" alt="Torre Comercial Alta Vista" class="case-row-img">
+                <div class="case-row-content">
+                    <div style="font-size: 12px; color: #d4af37; font-weight: bold; margin-bottom: 8px; letter-spacing: 1px;">DURACIÓN: 18 MESES | CULMINADO: DIC 2025</div>
+                    <h3 style="font-size: 24px; color: #fff; margin-bottom: 15px;">Torre Comercial Alta Vista</h3>
+                    <p style="color: #ccc; font-size: 14px; line-height: 1.7; margin-bottom: 12px;">
+                        <strong style="color: #fff;">Desafío Técnico/Legal:</strong> Terreno con superposición de áreas en registros públicos y suelo con alta napa freática que impedía la excavación de sótanos.
+                    </p>
+                    <p style="color: #ccc; font-size: 14px; line-height: 1.7;">
+                        <strong style="color: #fff;">Resultado Final:</strong> El equipo legal logró el saneamiento registral en tiempo récord. La ingeniería implementó muros pantalla, entregando un edificio de 15 pisos 100% seguro.
+                    </p>
+                </div>
             </div>
 
-            <!-- Caso 2 -->
-            <div class="case-card">
-                <div class="case-meta">Duración: 8 Meses | Culminado: May 2026</div>
-                <h3>Complejo Residencial "Las Dunas"</h3>
-                <p><strong>Desafío Técnico/Legal:</strong> Paralización de obra por observaciones de la municipalidad respecto a parámetros urbanísticos y fallas en el diseño estructural previo.</p>
-                <p><strong>Resultado Final:</strong> Rediseño arquitectónico y estructural por nuestra firma, levantamiento de observaciones municipales e inicio de obra ininterrumpido hasta su entrega llave en mano.</p>
+            <!-- CASO 2: Texto a la izquierda, Imagen a la derecha (Clase 'reverse') -->
+            <div class="case-row reverse">
+                <img src="../edificio2.jpeg" alt="Complejo Residencial Las Dunas" class="case-row-img">
+                <div class="case-row-content">
+                    <div style="font-size: 12px; color: #d4af37; font-weight: bold; margin-bottom: 8px; letter-spacing: 1px;">DURACIÓN: 8 MESES | CULMINADO: MAY 2026</div>
+                    <h3 style="font-size: 24px; color: #fff; margin-bottom: 15px;">Complejo Residencial "Las Dunas"</h3>
+                    <p style="color: #ccc; font-size: 14px; line-height: 1.7; margin-bottom: 12px;">
+                        <strong style="color: #fff;">Desafío Técnico/Legal:</strong> Paralización de obra por observaciones municipales respecto a parámetros urbanísticos y fallas estructurales previas.
+                    </p>
+                    <p style="color: #ccc; font-size: 14px; line-height: 1.7;">
+                        <strong style="color: #fff;">Resultado Final:</strong> Rediseño arquitectónico y estructural por nuestra firma, levantamiento de observaciones e inicio de obra ininterrumpido hasta su entrega llave en mano.
+                    </p>
+                </div>
             </div>
-            
-            <!-- Caso 3 -->
-            <div class="case-card">
-                <div class="case-meta">Duración: 4 Meses | Culminado: Ago 2026</div>
-                <h3>Auditoría y Remodelación Corporativa</h3>
-                <p><strong>Desafío Técnico/Legal:</strong> Cliente requería modernizar 3000m² de oficinas operativas sin interrumpir sus funciones, requiriendo nuevas licencias de Defensa Civil.</p>
-                <p><strong>Resultado Final:</strong> Ejecución de construcción en turnos nocturnos, gestión exitosa del certificado ITSE y entrega de espacios bajo normativa vigente.</p>
+
+            <!-- CASO 3: Imagen a la izquierda, Texto a la derecha -->
+            <div class="case-row">
+                <img src="../edificio3.jpg" alt="Auditoría y Remodelación Corporativa" class="case-row-img">
+                <div class="case-row-content">
+                    <div style="font-size: 12px; color: #d4af37; font-weight: bold; margin-bottom: 8px; letter-spacing: 1px;">DURACIÓN: 4 MESES | CULMINADO: AGO 2026</div>
+                    <h3 style="font-size: 24px; color: #fff; margin-bottom: 15px;">Auditoría y Remodelación Corporativa</h3>
+                    <p style="color: #ccc; font-size: 14px; line-height: 1.7; margin-bottom: 12px;">
+                        <strong style="color: #fff;">Desafío Técnico/Legal:</strong> Modernización de 3000m² de oficinas operativas sin interrumpir funciones, requiriendo nuevas licencias de Defensa Civil.
+                    </p>
+                    <p style="color: #ccc; font-size: 14px; line-height: 1.7;">
+                        <strong style="color: #fff;">Resultado Final:</strong> Ejecución en turnos nocturnos, gestión exitosa del certificado ITSE y entrega de espacios bajo normativa vigente.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -52,6 +92,6 @@
     <footer class="footer">
         <p>&copy; 2026 SGSG Construcciones. Todos los derechos reservados.</p>
     </footer>
-
+    <script src="../javascript/main.js"></script>
 </body>
 </html>

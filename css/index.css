@@ -679,3 +679,288 @@ footer {
         font-size: 2.5rem;
     }
 }
+/* --- ANIMACIONES Y ESTILOS MEJORADOS PARA SERVICIOS --- */
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-container {
+    animation: fadeInSlide 0.8s ease-out forwards;
+}
+
+.service-image-box {
+    animation: fadeInSlide 1s ease-out forwards;
+    transition: transform 0.4s ease;
+}
+
+.service-image-box:hover {
+    transform: scale(1.02);
+}
+
+.feature-badge {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid #d4af37; /* Color dorado elegante o el que use tu tema */
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 0 6px 6px 0;
+    transition: background 0.3s ease;
+}
+
+.feature-badge:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+/* --- ESTILOS EXTRA PARA ALARGAR Y MEJORAR LAS PÁGINAS DE SERVICIOS --- */
+.service-extra-section {
+    max-width: 1100px;
+    margin: 60px auto 0 auto;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-columns {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.service-col-card {
+    flex: 1;
+    min-width: 280px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 25px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.service-col-card:hover {
+    transform: translateY(-5px);
+    border-color: #d4af37;
+}
+
+.cta-banner {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(0,0,0,0.6));
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #d4af37;
+    color: #000;
+    font-weight: bold;
+    padding: 12px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #e6c547;
+    transform: scale(1.05);
+}
+/* --- ANIMACIONES GLOBALES --- */
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aplicamos la animación al Hero y a las secciones principales de index */
+.hero {
+    animation: fadeInSlide 0.8s ease-out forwards;
+}
+
+.nosotros-section {
+    animation: fadeInSlide 1s ease-out forwards;
+}
+
+.contacto-section {
+    animation: fadeInSlide 1.2s ease-out forwards;
+}
+
+/* Clases de animación reutilizables para Casos de Éxito y Galería */
+.container {
+    animation: fadeInSlide 0.9s ease-out forwards;
+}
+/* --- ESTILOS MEJORADOS PARA CASOS DE ÉXITO --- */
+.case-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.case-card:hover {
+    transform: translateY(-5px);
+    border-color: #d4af37;
+}
+
+.case-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.case-content {
+    padding: 20px;
+}
+
+/* Estilo para la información desplegable (Acordeón) */
+.case-details {
+    margin-top: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.case-summary {
+    padding: 12px 15px;
+    color: #d4af37;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.case-summary:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.case-body {
+    padding: 0 15px 15px 15px;
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.6;
+}
+/* --- ESTILOS EN ZIGZAG / DESPLAZAMIENTO HORIZONTAL PARA CASOS DE ÉXITO --- */
+.cases-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.case-row {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.case-row:hover {
+    transform: translateY(-5px);
+    border-color: #d4af37;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Efecto Zigzag: Invertimos el orden de las filas pares */
+.case-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.case-row-img {
+    flex: 1;
+    height: 320px;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.case-row:hover .case-row-img {
+    transform: scale(1.03);
+}
+
+.case-row-content {
+    flex: 1.2;
+    padding: 35px;
+}
+
+/* Animación de entrada horizontal suave */
+@keyframes slideInHorizontal {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInHorizontalRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.case-row:nth-child(odd) {
+    animation: slideInHorizontal 0.8s ease-out forwards;
+}
+
+.case-row:nth-child(even) {
+    animation: slideInHorizontalRight 0.8s ease-out forwards;
+}
+/* --- FONDO ANIMADO DE ONDAS DORADAS (DEFINITIVO) --- */
+html, body {
+    background-color: #0b0b0b !important;
+    color: #f4f4f4 !important;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+#gold-wave-canvas {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 1 !important; /* CAMBIADO DE -9999 A 1 PARA QUE SEA VISIBLE */
+    pointer-events: none !important;
+    background-color: #0b0b0b !important;
+}
+
+/* Y asegúrate de que los contenedores tengan z-index mayor para flotar sobre las ondas */
+.navbar, .hero, .main-container, .container, .footer, .case-row, .service-col-card, .service-container {
+    position: relative;
+    z-index: 2 !important;
+    background-color: rgba(12, 12, 12, 0.82) !important;
+    backdrop-filter: blur(6px);
+}
+
+/* PEGA ESTO AQUÍ ABAJO: */
+header, .navbar {
+    position: relative !important;
+    z-index: 9999 !important;
+}
