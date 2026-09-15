@@ -106,6 +106,57 @@
                         
                         <button type="submit" class="btn-submit">Enviar Mensaje &rarr;</button>
                     </form>
+                    <script>
+                        // Reemplaza esta URL con la que te generó Google Apps Script al implementar
+                        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/TU_SCRIPT_ID/exec";
+
+                        document.getElementById("formularioSGSG").addEventListener("submit", function (e) {
+                            e.preventDefault(); // Evita que la página se recargue
+
+                            const form = this;
+                            const btnSubmit = form.querySelector(".btn-submit");
+                            const textoOriginalBtn = btnSubmit.innerHTML;
+
+                            // Deshabilitar botón y mostrar estado de carga
+                            btnSubmit.disabled = true;
+                            btnSubmit.innerHTML = "Enviando mensaje...";
+
+                            // Obtener el texto del servicio seleccionado en lugar de solo el value ("arquitectura", "ingenieria", etc.)
+                            const selectServicio = document.getElementById("servicio");
+                            const textoServicio = selectServicio.options[selectServicio.selectedIndex].text;
+
+                            // Capturar los campos exactamente con los nombres que espera Google Apps Script
+                            const datos = {
+                            nombre: document.getElementById("nombre").value,
+                            correo: document.getElementById("correo").value,
+                            telefono: document.getElementById("telefono").value,
+                            servicio: textoServicio,
+                            mensaje: document.getElementById("mensaje").value
+                            };
+
+                            fetch(GOOGLE_SCRIPT_URL, {
+                            method: "POST",
+                            mode: "no-cors",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(datos)
+                            })
+                            .then(() => {
+                            alert("¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.");
+                            form.reset(); // Limpia el formulario
+                            })
+                            .catch((error) => {
+                            console.error("Error al enviar:", error);
+                            alert("Ocurrió un error al enviar el mensaje. Por favor intenta nuevamente.");
+                            })
+                            .finally(() => {
+                            // Restaurar el botón a su estado original
+                            btnSubmit.disabled = false;
+                            btnSubmit.innerHTML = textoOriginalBtn;
+                            });
+                        });
+                    </script>
                 </div>
 
                 <!-- Columna Derecha: Información de contacto -->
