@@ -4,5 +4,7 @@
   "assets": {
     "directory": "./",
     "html_handling": "drop-trailing-slash"
+    workers_dev = true
+    preview_urls = true
   }
 }
