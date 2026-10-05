@@ -210,74 +210,60 @@ a {
 
 
 /* ==========================================================================
-   4. HERO SECTION (Estructura Full-Bleed de 3 Columnas)
+   4. HERO SECTION (Modificado para centrar todo al medio)
    ========================================================================== */
 .hero {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr 1fr; /* Proporción para resaltar el centro */
-    align-items: stretch; /* Estira las imágenes hasta los bordes superior e inferior */
-    gap: 0; /* Sin separaciones para diseño premium continuo */
+    display: flex;                /* Cambiado de grid a flex */
+    flex-direction: column;
+    justify-content: center;      /* Centra verticalmente */
+    align-items: center;          /* Centra horizontalmente */
+    text-align: center;           /* Centra todo el texto */
     min-height: 100vh;
-    padding: 90px 0 0 0; /* Compensación exacta de 90px por la barra de navegación, márgenes laterales en 0 */
+    padding: 90px 20px 0 20px;    /* Margen superior por el menú y respiro a los lados */
     
     background: linear-gradient(rgba(15, 17, 21, 0.85), rgba(15, 17, 21, 0.9)), 
                 url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070') center/cover no-repeat fixed;
     
     overflow: hidden;
-}
-
-.hero-image {
-    height: 100%;
-    width: 100%;
-    border-radius: 0; /* Eliminados bordes redondeados para que toquen los extremos de la pantalla */
-    overflow: hidden;
-    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8); /* Sombra interna para dar profundidad */
-}
-
-.hero-image img {
-    width: 100%;
-    height: 100%;
-    /* 'contain' muestra la imagen completa. Para ajustar encuadre exacto usa contain/cover según prefieras */
-    object-fit: cover; 
-    object-position: center center; /* Centra el encuadre de la imagen */
-    filter: brightness(0.35) grayscale(40%);
-    transition: filter 0.6s ease, transform 0.6s ease;
-}
-
-/* Hover sin hacer zoom (scale) para mantener el encuadre */
-.hero-image:hover img {
-    filter: brightness(0.8) grayscale(0%);
-    transform: translateY(-5px); /* Pequeño desplazamiento elegante en lugar de zoom */
+    position: relative;
+    z-index: 2;
 }
 
 .hero-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Centrado absoluto vertical */
-    text-align: center;
-    padding: 0 3rem;
+    align-items: center;       
+    justify-content: center;   
+    text-align: center;        
+    max-width: 900px;           /* Limita el ancho para que el texto luzca ordenado */
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .hero-logo-center {
-    width: 250px; /* Escala imponente para impacto de marca */
-    margin-bottom: 2.5rem;
-    opacity: 1; /* Transparencia eliminada para máxima nitidez */
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6)); /* Sombra acorde al nuevo tamaño */
+    width: 220px;               /* Tamaño ideal para el logo central */
+    margin-bottom: 2rem;
+    opacity: 1;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6));
 }
 
 .hero-content h1 {
-    font-size: 3.5rem; /* Ajustado ligeramente para balancear con el logo grande */
+    font-size: 3rem;
     margin-bottom: 1.5rem;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     line-height: 1.2;
 }
 
 .hero-content p {
     font-size: 1.1rem;
-    max-width: 650px;
-    margin: 0 auto 3rem;
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
     color: var(--text-muted);
+}
+
+/* Ocultamos las columnas laterales viejas si es que quedaron sueltas en tu HTML */
+.hero-image {
+    display: none; 
 }
 /* ==========================================================================
    4.1 SECCIÓN NOSOTROS (Alineación Centro - Izquierda)
@@ -1062,4 +1048,307 @@ header, .navbar {
     .whatsapp-tooltip {
         display: none; 
     }
+}
+/* Estilo corporativo y nitidez para el botón Cotizar Proyecto */
+.hero-content .btn-primary,
+.hero-content a[href="#contacto"] {
+    display: inline-block;
+    background-color: var(--accent);       /* Fondo dorado elegante */
+    color: var(--bg-main);                 /* Texto oscuro de alto contraste */
+    padding: 0.9rem 2.2rem;                /* Tamaño cómodo y proporcional */
+    border: 1px solid var(--accent);
+    border-radius: 4px;                    /* Esquinas sutilmente redondeadas */
+    font-size: 0.85rem;
+    font-weight: 600;                      /* Mayor grosor para que se vea nítido */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra para darle profundidad */
+    transition: var(--transition);
+}
+
+/* Efecto Hover (al pasar el mouse) */
+.hero-content .btn-primary:hover,
+.hero-content a[href="#contacto"]:hover {
+    background-color: var(--accent-hover); /* Dorado más claro al pasar el cursor */
+    color: var(--bg-main);
+    transform: translateY(-2px);           /* Sutil elevación */
+    box-shadow: 0 6px 20px rgba(197, 168, 128, 0.4); /* Brillo dorado difuminado */
+}
+/* Asegura que los videos dentro de la galería actúen igual que las imágenes */
+.portfolio-gallery-grid video {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+/* ==========================================================================
+   ESTILOS PARA ÁLBUMES DE PROYECTOS Y VISOR MODAL LIGHTBOX
+   ========================================================================== */
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.album-card {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.album-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+.album-cover-box {
+    position: relative;
+    width: 100%;
+    height: 240px; /* Tamaño estricto y uniforme para todas las portadas */
+    background-color: #050608;
+    overflow: hidden;
+}
+
+.album-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.album-card:hover .album-cover {
+    transform: scale(1.08);
+}
+
+/* Insignia dorada de cantidad de elementos */
+.album-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(15, 17, 21, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.album-info {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-card);
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.album-info h3 {
+    font-size: 1.15rem;
+    color: var(--text-main);
+    letter-spacing: 1px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.album-btn-view {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   VENTANA MODAL / LIGHTBOX DE PANTALLA COMPLETA
+   ========================================================================== */
+.modal-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(5, 6, 8, 0.95);
+    backdrop-filter: blur(15px);
+    z-index: 100000;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-viewer.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-title {
+    color: var(--text-main);
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+.modal-counter {
+    color: var(--accent);
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.modal-close {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.modal-close:hover {
+    color: var(--accent);
+    transform: scale(1.15);
+}
+
+.modal-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-media-container {
+    max-width: 85%;
+    max-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.modal-media-item {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    object-fit: contain;
+    animation: fadeInSlide 0.3s ease-out;
+}
+
+.modal-nav-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+    z-index: 10;
+}
+
+.modal-nav-btn:hover {
+    background: var(--accent);
+    color: var(--bg-main);
+    border-color: var(--accent);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .modal-header {
+        padding: 15px 20px;
+    }
+    .modal-media-container {
+        max-width: 95%;
+    }
+    .modal-nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+/* Tamaño óptimo para videos dentro del visor modal */
+.modal-media-container video {
+    max-width: 80vw;
+    max-height: 75vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    outline: none;
+}
+/* Forzar que el video en el visor modal tenga tamaño completo */
+#modalMediaContainer {
+    width: 85vw !important;
+    height: 75vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#modalMediaContainer video {
+    width: 100% !important;
+    max-width: 900px !important;
+    height: auto !important;
+    max-height: 70vh !important;
+    background-color: #000 !important;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    display: block !important;
+}
+/* FORZAR VISIBILIDAD Y TAMAÑO DEL VIDEO EN MODAL */
+.modal-viewer .modal-body {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: calc(100vh - 80px) !important;
+}
+
+.modal-viewer #modalMediaContainer {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 85vw !important;
+    height: 70vh !important;
+    max-width: 950px !important;
+}
+
+.modal-viewer video.modal-media-item {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 70vh !important;
+    object-fit: contain !important;
+    background-color: #000000 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8) !important;
 }
