@@ -85,3 +85,4 @@ window.addEventListener('load', function () {
         }
     });
 })();
+//Se logro agregar la visualizacion 3D en galeria
