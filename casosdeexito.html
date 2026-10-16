@@ -122,10 +122,11 @@
 
             <!-- 6. MADRID CAMELIAS -->
             <div class="album-card" data-title="Proyecto Madrid Camelias" data-media='[
-                {"type":"video", "src":"proyectos de empresa/Madrid Camelias/Fachada_Camelias.mp4"}
+                {"type":"youtube", "src":"_aY1-mvbFeI"}
             ]'>
                 <div class="album-cover-box">
-                    <video src="proyectos de empresa/Madrid Camelias/Fachada_Camelias.mov" class="album-cover" muted autoplay loop playsinline preload="metadata"></video>
+                    <!-- PORTADA AUTOMÁTICA DEL VIDEO DE YOUTUBE -->
+                    <img src="https://img.youtube.com/vi/_aY1-mvbFeI/hqdefault.jpg" alt="Madrid Camelias" class="album-cover">
                     <span class="album-badge">1 video</span>
                 </div>
                 <div class="album-info">
@@ -152,11 +153,11 @@
                 </div>
             </div>
 
-            <!-- 8. MIGUELON -->
+            <!-- 8. MIGUELON (CON YOUTUBE) -->
             <div class="album-card" data-title="Proyecto Miguelon" data-media='[
                 {"type":"img", "src":"proyectos de empresa/Miguelon/Entrada01.jpg"},
                 {"type":"img", "src":"proyectos de empresa/Miguelon/Entrada02.jpg"},
-                {"type":"video", "src":"proyectos de empresa/Miguelon/Miguelon_1.mov"},
+                {"type":"youtube", "src":"https://www.youtube.com/watch?v=ul8BnuBvTNo"},
                 {"type":"img", "src":"proyectos de empresa/Miguelon/Piscina2.jpg"}
             ]'>
                 <div class="album-cover-box">
@@ -169,10 +170,10 @@
                 </div>
             </div>
 
-            <!-- 9. MOLINA -->
+            <!-- 9. MOLINA (CON YOUTUBE) -->
             <div class="album-card" data-title="Proyecto Molina" data-media='[
                 {"type":"img", "src":"proyectos de empresa/Molina/Sala_Comedor - copia.jpg"},
-                {"type":"video", "src":"proyectos de empresa/Molina/Cuerpo.mp4"},
+                {"type":"youtube", "src":"https://www.youtube.com/watch?v=tWOpxsZYW5A"},
                 {"type":"img", "src":"proyectos de empresa/Molina/cu - copia.jpg"}
             ]'>
                 <div class="album-cover-box">
@@ -262,7 +263,7 @@
         </a>
     </div>
 
-   <!-- Script del Visor Lightbox Mejorado -->
+    <!-- Script del Visor Lightbox con soporte de YouTube -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const cards = document.querySelectorAll('.album-card');
@@ -277,6 +278,13 @@
             let currentMediaList = [];
             let currentIndex = 0;
 
+            // Función para extraer el ID de cualquier link de YouTube
+            function getYouTubeId(url) {
+                const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+                const match = url.match(regExp);
+                return (match && match[2].length === 11) ? match[2] : url;
+            }
+
             cards.forEach(card => {
                 card.addEventListener('click', () => {
                     const title = card.getAttribute('data-title');
@@ -285,10 +293,7 @@
                 });
             });
 
-           function openModal(title, mediaList) {
-                // 1. Pausamos cualquier video que se esté reproduciendo en las tarjetas de afuera
-                document.querySelectorAll('.album-cover-box video').forEach(v => v.pause());
-
+            function openModal(title, mediaList) {
                 currentMediaList = mediaList;
                 currentIndex = 0;
                 modalTitle.textContent = title;
@@ -309,27 +314,41 @@
                     img.alt = modalTitle.textContent;
                     img.className = 'modal-media-item';
                     mediaContainer.appendChild(img);
-                } else if (item.type === 'video') {
-                    const video = document.createElement('video');
-                    video.className = 'modal-media-item modal-video-item';
-                    video.src = item.src;
-                    video.controls = true;
-                    video.autoplay = true;
-                    video.playsInline = true;
-                    video.preload = "auto";
+                } else if (item.type === 'youtube') {
+                    // Creamos el reproductor de YouTube
+                    const videoId = getYouTubeId(item.src);
+                    const iframe = document.createElement('iframe');
+                    iframe.className = 'modal-media-item';
+                    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+                    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                    iframe.allowFullscreen = true;
                     
-                    // FORZAR TAMAÑO DIRECTO PARA EVITAR QUE COLAPSE A 0 PIXELES
-                    video.style.setProperty('width', '80vw', 'important');
-                    video.style.setProperty('height', '60vh', 'important');
-                    video.style.setProperty('max-width', '900px', 'important');
-                    video.style.setProperty('object-fit', 'contain', 'important');
-                    video.style.setProperty('background', '#000', 'important');
-                    video.style.setProperty('display', 'block', 'important');
+                    // Ajustes de tamaño responsivo para el modal
+                    iframe.style.setProperty('width', '80vw', 'important');
+                    iframe.style.setProperty('height', '60vh', 'important');
+                    iframe.style.setProperty('max-width', '900px', 'important');
+                    iframe.style.setProperty('border', 'none', 'important');
 
-                    mediaContainer.appendChild(video);
-                    video.load();
-                    video.play().catch(err => console.log("Video listo"));
-                }
+                    mediaContainer.appendChild(iframe);
+                    } else if (item.type === 'youtube') {
+                    const videoId = getYouTubeId(item.src);
+                    const iframe = document.createElement('iframe');
+                    iframe.className = 'modal-media-item';
+                    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+                    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                    iframe.allowFullscreen = true;
+                    
+                    // AGREGA ESTA LÍNEA EXACTA AQUÍ:
+                    iframe.referrerPolicy = "strict-origin-when-cross-origin";
+
+                    iframe.style.setProperty('width', '80vw', 'important');
+                    iframe.style.setProperty('height', '60vh', 'important');
+                    iframe.style.setProperty('max-width', '900px', 'important');
+                    iframe.style.setProperty('border', 'none', 'important');
+
+                    mediaContainer.appendChild(iframe);
+                    }
+
                 if (currentMediaList.length <= 1) {
                     prevBtn.style.display = 'none';
                     nextBtn.style.display = 'none';
@@ -339,14 +358,12 @@
                 }
             }
 
-           function closeModal() {
+            function closeModal() {
                 modal.classList.remove('active');
-                mediaContainer.innerHTML = ''; 
+                mediaContainer.innerHTML = ''; // Detiene el video de YouTube inmediatamente
                 document.body.style.overflow = '';
-
-                // 2. Volvemos a reanudar los videos de las tarjetas de afuera
-                document.querySelectorAll('.album-cover-box video').forEach(v => v.play());
             }   
+
             function prevMedia() {
                 currentIndex = (currentIndex - 1 + currentMediaList.length) % currentMediaList.length;
                 renderMedia();
