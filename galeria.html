@@ -227,7 +227,7 @@
             </div>
         </div>
 
-        <!-- SELECTOR DE MODELOS 3D (AQUÍ AGREGAS TODOS LOS QUE QUIERAS) -->
+        <!-- SELECTOR DE MODELOS 3D -->
         <section class="models-catalog">
             <h2 style="font-size: 1.4rem; color: var(--text-main, #fff); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px;">
                 Seleccionar Propuesta 3D
@@ -237,8 +237,9 @@
             </p>
 
             <div class="models-grid">
-                <!-- MODELO 1 (Activo por defecto) -->
-                <div class="model-card active" 
+                <!-- MODELO 1: FACHADA -->
+                <div id="modelo-fachada" 
+                     class="model-card active" 
                      data-title="Propuesta Fachada Principal"
                      data-src="https://sketchfab.com/models/384c6fab0d51475989e9c0ec099cad5f/embed?autostart=1&ui_theme=dark&ui_watermark=0&ui_infos=0">
                     <img src="proyectos de empresa/Olinda Campos/Fachada02.jpg" alt="Fachada Dorchester" class="model-thumb">
@@ -246,8 +247,9 @@
                     <p class="model-card-desc">Distribución exterior, acabados y volumetría.</p>
                 </div>
 
-                <!-- MODELO 2 (Ejemplo: Solo cambia el data-src con el ID de tu nuevo modelo de Sketchfab) -->
-                <div class="model-card" 
+                <!-- MODELO 2: INTERIORISMO -->
+                <div id="modelo-interior" 
+                     class="model-card" 
                      data-title="Distribución Interior y Plantas"
                      data-src="https://sketchfab.com/models/384c6fab0d51475989e9c0ec099cad5f/embed?autostart=1&ui_theme=dark&ui_watermark=0&ui_infos=0">
                     <img src="proyectos de empresa/madrid constructores inmobiliarios/Sala01.jpg" alt="Interiorismo" class="model-thumb">
@@ -255,8 +257,9 @@
                     <p class="model-card-desc">Recorrido por áreas comunes y sala comedor.</p>
                 </div>
 
-                <!-- MODELO 3 -->
-                <div class="model-card" 
+                <!-- MODELO 3: VOLUMETRÍA -->
+                <div id="modelo-volumetria" 
+                     class="model-card" 
                      data-title="Estructura y Acabados"
                      data-src="https://sketchfab.com/models/384c6fab0d51475989e9c0ec099cad5f/embed?autostart=1&ui_theme=dark&ui_watermark=0&ui_infos=0">
                     <img src="proyectos de empresa/Elsa Ramirez/Entrada Principal.jpg" alt="Volumetría" class="model-thumb">
@@ -265,33 +268,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- SECCIÓN SECUNDARIA: RENDERS DE APOYO -->
-        <h2 style="font-size: 1.4rem; margin-top: 50px; margin-bottom: 25px; color: var(--text-main); text-transform: uppercase; letter-spacing: 2px;">
-            Renders y Vistas Destacadas
-        </h2>
-
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="edificio1.jpeg" alt="Diseño de Fachada">
-                <div class="gallery-caption">Diseño de Fachada Residencial</div>
-            </div>
-            
-            <div class="gallery-item">
-                <img src="edificio2.jpeg" alt="Diseño Interior">
-                <div class="gallery-caption">Interiorismo & Iluminación Natural</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="edificio3.jpeg" alt="Acceso Principal">
-                <div class="gallery-caption">Acceso Principal & Volumetría</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="edificio1.jpeg" alt="Distribución en Planta">
-                <div class="gallery-caption">Cálculo de Espacios & Planta 3D</div>
-            </div>
-        </div>
     </main>
 
     <footer class="footer">
@@ -308,7 +284,7 @@
         </a>
     </div>
 
-   <!-- SCRIPT DE INTERACCIÓN Y MINIATURAS AUTOMÁTICAS ESTILO YOUTUBE -->
+    <!-- SCRIPT DE INTERACCIÓN Y ENLACE AUTOMÁTICO DESDE EL INICIO -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const frame = document.getElementById('sketchfabFrame');
@@ -316,28 +292,7 @@
             const fullscreenBtn = document.getElementById('fullscreenBtn');
             const viewerBox = document.getElementById('mainViewerBox');
 
-            // 1. OBTENER MINIATURA AUTOMÁTICA DE SKETCHFAB (ESTILO YOUTUBE)
-            modelCards.forEach(card => {
-                const src = card.getAttribute('data-src');
-                const img = card.querySelector('.model-thumb');
-
-                // Extraer el ID único del modelo (ej: 384c6fab0d51475989e9c0ec099cad5f)
-                const match = src.match(/models\/([a-f0-9]{32})/i);
-                if (match && img) {
-                    const uid = match[1];
-                    // Consultar la imagen oficial a Sketchfab
-                    fetch(`https://sketchfab.com/oembed?url=https://sketchfab.com/models/${uid}`)
-                        .then(res => res.json())
-                        .then(data => {
-                            if (data.thumbnail_url) {
-                                img.src = data.thumbnail_url;
-                            }
-                        })
-                        .catch(err => console.log('Usando imagen local por defecto'));
-                }
-            });
-
-            // 2. CAMBIO DE MODELO 3D A UN CLIC
+            // 1. CAMBIO DE MODELO 3D A UN CLIC
             modelCards.forEach(card => {
                 card.addEventListener('click', () => {
                     modelCards.forEach(c => c.classList.remove('active'));
@@ -354,6 +309,17 @@
                     viewerBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 });
             });
+
+            // 2. DETECCIÓN AUTOMÁTICA DESDE EL INICIO (INDEX.HTML#MODELO-XXX)
+            const hash = window.location.hash.replace('#', '');
+            if (hash) {
+                const targetCard = document.getElementById(hash);
+                if (targetCard) {
+                    setTimeout(() => {
+                        targetCard.click(); // Activa automáticamente la tarjeta solicitada (EN VISTA)
+                    }, 250);
+                }
+            }
 
             // 3. PANTALLA COMPLETA TOTAL
             fullscreenBtn.addEventListener('click', () => {
@@ -376,3 +342,22 @@
     <script src="javascript/main.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

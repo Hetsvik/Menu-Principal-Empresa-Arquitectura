@@ -5,6 +5,516 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGSG Construcciones | Inicio</title>
     <link rel="stylesheet" href="css/index.css">
+
+    <style>
+        /* =======================================================
+           ESTILOS GENERALES Y TRANSPARENCIAS (CERO CORTES A ONDAS)
+           ======================================================= */
+        .seccion-transparente {
+            position: relative;
+            z-index: 5;
+            background: transparent !important;
+            padding: 60px 20px;
+        }
+
+        .header-seccion {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+
+        .tag-dorado {
+            color: #d4af37;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 2.5px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .titulo-seccion {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0 0 12px 0;
+            letter-spacing: 0.5px;
+        }
+
+        .subtitulo-seccion {
+            font-size: 15px;
+            color: #a0a6b1;
+            margin: 0;
+            line-height: 1.5;
+        }
+/* =======================================================
+           TARJETAS DE SERVICIOS CON IMÁGENES REALES
+           ======================================================= */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            max-width: 1350px;
+            margin: 0 auto;
+        }
+
+        .card-servicio {
+            background: rgba(16, 18, 24, 0.92) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            border-radius: 14px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        .card-servicio:hover {
+            border-color: #d4af37;
+            background: rgba(22, 25, 35, 0.98) !important;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.22);
+            transform: translateY(-4px);
+        }
+
+        /* Foto real de la especialidad */
+        .card-img-header {
+            position: relative;
+            width: 100%;
+            height: 140px;
+            overflow: hidden;
+            background: #090b0e;
+        }
+
+        .card-img-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .card-servicio:hover .card-img-header img {
+            transform: scale(1.08);
+        }
+
+        .card-tag {
+            position: absolute;
+            bottom: 8px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.78);
+            border: 1px solid rgba(212, 175, 55, 0.6);
+            color: #d4af37;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-body {
+            padding: 20px 16px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            line-height: 1.3;
+        }
+
+        .card-desc {
+            font-size: 12.5px;
+            color: #a0a6b1;
+            line-height: 1.5;
+            margin: 0 0 18px 0;
+            flex-grow: 1;
+        }
+
+        .card-bullet {
+            font-size: 11.5px;
+            color: #d4af37;
+            margin-bottom: 12px;
+            display: block;
+            font-weight: 600;
+        }
+
+        .btn-card {
+            display: inline-block;
+            text-align: center;
+            background: #1e222b;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #ffffff;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .card-servicio:hover .btn-card {
+            background: #d4af37;
+            color: #0b0c0e;
+            border-color: #d4af37;
+        }
+        /* =======================================================
+           2. SECCIÓN PROYECTOS DESTACADOS (CASOS DE ÉXITO REALES)
+           ======================================================= */
+        .proyectos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 25px;
+            max-width: 1250px;
+            margin: 0 auto;
+        }
+
+        .proyecto-card {
+            background: rgba(16, 18, 24, 0.92);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 14px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .proyecto-card:hover {
+            border-color: #d4af37;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.22);
+        }
+
+        .proyecto-img-box {
+            position: relative;
+            width: 100%;
+            height: 190px;
+            overflow: hidden;
+            background: #101216;
+        }
+
+        .proyecto-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            display: block;
+        }
+
+        .proyecto-card:hover .proyecto-img {
+            transform: scale(1.05);
+        }
+
+        .proyecto-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.75);
+            border: 1px solid rgba(212, 175, 55, 0.6);
+            color: #d4af37;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 12px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .proyecto-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .proyecto-info h3 {
+            font-size: 17px;
+            color: #ffffff;
+            margin: 0 0 8px 0;
+            font-weight: 700;
+        }
+
+        .proyecto-info p {
+            color: #9aa0a6;
+            font-size: 13px;
+            line-height: 1.4;
+            margin: 0 0 16px 0;
+        }
+
+        .proyecto-link {
+            color: #d4af37;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .ver-todos-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn-ver-todos {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            padding: 12px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-ver-todos:hover {
+            background: #d4af37;
+            color: #000;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* =======================================================
+           3. BANNER DESTACADO GALERÍA 3D
+           ======================================================= */
+        .banner-3d-box {
+            max-width: 1250px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(18, 20, 27, 0.95) 0%, rgba(27, 31, 40, 0.95) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            border-radius: 16px;
+            padding: 35px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .banner-3d-text h3 {
+            font-size: 24px;
+            color: #ffffff;
+            margin: 0 0 8px 0;
+            font-weight: 700;
+        }
+
+        .banner-3d-text p {
+            color: #a0a6b1;
+            font-size: 15px;
+            margin: 0;
+            max-width: 650px;
+            line-height: 1.5;
+        }
+
+        .btn-banner-3d {
+            background: #d4af37;
+            color: #0b0c0e;
+            padding: 13px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-banner-3d:hover {
+            background: #f3ca46;
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+        }
+        /* =======================================================
+           SHOWCASE 3D EN EL INICIO (TRANSPARENTE Y MODERNO)
+           ======================================================= */
+        .showcase-3d-section {
+            position: relative;
+            z-index: 5;
+            background: transparent !important;
+            padding: 40px 20px 80px 20px;
+        }
+
+        .showcase-3d-container {
+            max-width: 1250px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, rgba(16, 19, 26, 0.92) 0%, rgba(22, 26, 36, 0.95) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 18px;
+            padding: 40px 35px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .showcase-3d-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 25px;
+        }
+
+        .showcase-3d-title-box h3 {
+            font-size: 26px;
+            color: #ffffff;
+            margin: 6px 0 10px 0;
+            font-weight: 700;
+        }
+
+        .showcase-3d-title-box p {
+            color: #a0a6b1;
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0;
+            max-width: 600px;
+        }
+
+        /* Insignias de control interactivo */
+        .showcase-badges {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .badge-control {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: #d4af37;
+            font-size: 12px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* Rejilla de las 3 maquetas 3D */
+        .showcase-models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .showcase-model-card {
+            background: rgba(11, 13, 17, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .showcase-model-card:hover {
+            border-color: #d4af37;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .showcase-thumb-box {
+            position: relative;
+            height: 160px;
+            overflow: hidden;
+            background: #090b0e;
+        }
+
+        .showcase-thumb-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .showcase-model-card:hover .showcase-thumb-box img {
+            transform: scale(1.06);
+        }
+
+        .badge-live-3d {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.75);
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .showcase-card-body {
+            padding: 16px;
+        }
+
+        .showcase-card-body h4 {
+            font-size: 16px;
+            color: #ffffff;
+            margin: 0 0 6px 0;
+            font-weight: 700;
+        }
+
+        .showcase-card-body p {
+            font-size: 12px;
+            color: #9aa0a6;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* Barra inferior de acción */
+        .showcase-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .showcase-footer-hint {
+            color: #8b929e;
+            font-size: 13px;
+        }
+
+        .btn-launch-3d {
+            background: #d4af37;
+            color: #0b0c0e;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-launch-3d:hover {
+            background: #f3ca46;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+        }   
+    </style>
 </head>
 <body>
     <header>
@@ -16,27 +526,28 @@
             
             <nav class="nav-container">
                 <ul class="nav-links">
-    <li><a href="index.html">Inicio</a></li>
-    
-    <li class="dropdown">
-        <a href="javascript:void(0);" class="dropdown-toggle">Servicios <span class="arrow">&#9662;</span></a>
-        <ul class="dropdown-menu">
-            <li><a href="servicios/arquitectura.html">Arquitectura</a></li>
-            <li><a href="servicios/abogados.html">Abogados</a></li>
-            <li><a href="servicios/ingenieria.html">Ingeniería</a></li>
-            <li><a href="servicios/construccion.html">Construcción</a></li>
-            <li><a href="servicios/consultoria.html">Consultoría</a></li>
-        </ul>
-    </li>
+                    <li><a href="index.html">Inicio</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle">Servicios <span class="arrow">&#9662;</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="servicios/arquitectura.html">Arquitectura</a></li>
+                            <li><a href="servicios/abogados.html">Abogados</a></li>
+                            <li><a href="servicios/ingenieria.html">Ingeniería</a></li>
+                            <li><a href="servicios/construccion.html">Construcción</a></li>
+                            <li><a href="servicios/consultoria.html">Consultoría</a></li>
+                        </ul>
+                    </li>
 
-    <li><a href="casosdeexito.html">Casos de Éxito</a></li>
-    <li><a href="galeria.html">Galería 3D</a></li>
-    <li><a href="index.html#contacto">Contacto</a></li>
-</ul>
+                    <li><a href="casosdeexito.html">Casos de Éxito</a></li>
+                    <li><a href="galeria.html">Galería 3D</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
             </nav>
         </div>
     </header>
 
+    <!-- HERO PRINCIPAL -->
     <section class="hero">
         <div class="hero-content">
             <img src="logo.png" alt="SGSG Logo Central" class="hero-logo-center">
@@ -46,6 +557,242 @@
         </div>
     </section>
 
+    <!-- 1. SECCIÓN SERVICIOS PRINCIPALES (CON IMÁGENES REALES Y TEXTOS TÉCNICOS) -->
+    <section id="servicios" class="seccion-transparente">
+        <div class="header-seccion">
+            <span class="tag-dorado">Especialidades Integrales</span>
+            <h2 class="titulo-seccion">Nuestros Servicios Especializados</h2>
+            <p class="subtitulo-seccion">
+                Unificamos arquitectura vanguardista, cálculo estructural sismorresistente y blindaje jurídico inmobiliario bajo normativas peruanas.
+            </p>
+        </div>
+
+        <div class="cards-container">
+            
+            <!-- 1. Arquitectura & Diseño -->
+            <a href="servicios/arquitectura.html" class="card-servicio">
+                <div class="card-img-header">
+                    <img src="proyectos de empresa/Aparcana/Boceto04.jpg" alt="Arquitectura y Diseño">
+                    <span class="card-tag">BIM & RNE</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Arquitectura & Diseño</h3>
+                    <span class="card-bullet">✓ Anteproyectos & Planos Ejecutivos</span>
+                    <p class="card-desc">
+                        Diseño residencial y multifamiliar, optimización de áreas útiles según parámetros urbanísticos y recorridos tridimensionales.
+                    </p>
+                    <span class="btn-card">Ver Área de Diseño &rarr;</span>
+                </div>
+            </a>
+
+            <!-- 2. Blindaje Legal Inmobiliario -->
+            <a href="servicios/abogados.html" class="card-servicio">
+                <div class="card-img-header">
+                    <img src="proyectos de empresa/Olinda Campos/PLANTA01_01_BLANCO.jpg" alt="Blindaje Legal Inmobiliario">
+                    <span class="card-tag">SUNARP & Licencias</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Blindaje Legal Inmobiliario</h3>
+                    <span class="card-bullet">✓ Saneamiento & Trámites Edificatorios</span>
+                    <p class="card-desc">
+                        Saneamiento físico-legal de predios, declaratorias de fábrica, independizaciones, licencias municipales y destrabe de obras ante comunas.
+                    </p>
+                    <span class="btn-card">Ver Área Legal &rarr;</span>
+                </div>
+            </a>
+
+            <!-- 3. Ingeniería Estructural -->
+            <a href="servicios/ingenieria.html" class="card-servicio">
+                <div class="card-img-header">
+                    <img src="proyectos de empresa/Madrid 2/Fachada_Madrid_3_2.jpg" alt="Ingeniería Estructural">
+                    <span class="card-tag">Norma E.030 / E.060</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Ingeniería Estructural</h3>
+                    <span class="card-bullet">✓ Análisis Sismorresistente CIP</span>
+                    <p class="card-desc">
+                        Cálculo y modelado estructural de edificaciones de concreto armado, cimentaciones en suelos complejos y memorias validadas.
+                    </p>
+                    <span class="btn-card">Ver Área Estructural &rarr;</span>
+                </div>
+            </a>
+
+            <!-- 4. Construcción Llave en Mano -->
+            <a href="servicios/construccion.html" class="card-servicio">
+                <div class="card-img-header">
+                    <img src="proyectos de empresa/LoLi/LoLi_ASG01.jpg" alt="Construcción Llave en Mano">
+                    <span class="card-tag">Casco & Acabados</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Construcción Llave en Mano</h3>
+                    <span class="card-bullet">✓ Ejecución & Control de Obra</span>
+                    <p class="card-desc">
+                        Gestión integral de obra civil bajo cronograma cerrado: movimiento de tierras, vaciado de losas, instalaciones y acabados finales.
+                    </p>
+                    <span class="btn-card">Ver Construcción &rarr;</span>
+                </div>
+            </a>
+
+            <!-- 5. Consultoría & Gestión Inmobiliaria -->
+            <a href="servicios/consultoria.html" class="card-servicio">
+                <div class="card-img-header">
+                    <img src="proyectos de empresa/Arquilima/fachada.jpg" alt="Consultoría Inmobiliaria">
+                    <span class="card-tag">Estudios de Cabida</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Consultoría & Gestión</h3>
+                    <span class="card-bullet">✓ Viabilidad & Retorno m²</span>
+                    <p class="card-desc">
+                        Evaluación técnica y financiera de terrenos, estudio de cabida para desarrolladores inmobiliarios y maximización de rentabilidad.
+                    </p>
+                    <span class="btn-card">Ver Consultoría &rarr;</span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- 2. SECCIÓN PROYECTOS DESTACADOS (CON IMÁGENES REALES LOCALES) -->
+    <section class="seccion-transparente" style="padding-top: 20px;">
+        <div class="header-seccion">
+            <span class="tag-dorado">Casos de Éxito</span>
+            <h2 class="titulo-seccion">Proyectos Destacados</h2>
+            <p class="subtitulo-seccion">Una muestra de las obras, diseños arquitectónicos e intervenciones estructurales que respaldan nuestra experiencia.</p>
+        </div>
+
+        <div class="proyectos-grid">
+            
+            <!-- 1. Madrid Constructores -->
+            <a href="casosdeexito.html#madrid-constructores" class="proyecto-card">
+                <div class="proyecto-img-box">
+                    <img src="proyectos de empresa/madrid constructores inmobiliarios/Fachada_01.jpg" alt="Madrid Constructores" class="proyecto-img">
+                    <span class="proyecto-badge">Edificación</span>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Madrid Constructores Inmobiliarios</h3>
+                    <p>Diseño arquitectónico y desarrollo de espacios residenciales y áreas de estar optimizadas.</p>
+                    <span class="proyecto-link">Abrir Álbum (5 fotos) &rarr;</span>
+                </div>
+            </a>
+
+            <!-- 2. Olinda Campos -->
+            <a href="casosdeexito.html#olinda-campos" class="proyecto-card">
+                <div class="proyecto-img-box">
+                    <img src="proyectos de empresa/Olinda Campos/Fachada02.jpg" alt="Proyecto Olinda Campos" class="proyecto-img">
+                    <span class="proyecto-badge">Multifamiliar</span>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Proyecto Olinda Campos</h3>
+                    <p>Desarrollo integral de planos de distribución, despachos y fachada residencial moderna.</p>
+                    <span class="proyecto-link">Abrir Álbum (13 fotos) &rarr;</span>
+                </div>
+            </a>
+
+            <!-- 3. Arquilima -->
+            <a href="casosdeexito.html#arquilima" class="proyecto-card">
+                <div class="proyecto-img-box">
+                    <img src="proyectos de empresa/Arquilima/fachada.jpg" alt="Proyecto Arquilima" class="proyecto-img">
+                    <span class="proyecto-badge">Residencial</span>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Proyecto Arquilima</h3>
+                    <p>Propuesta arquitectónica vertical contemporánea con balcones y acabados de vanguardia.</p>
+                    <span class="proyecto-link">Abrir Proyecto &rarr;</span>
+                </div>
+            </a>
+
+            <!-- 4. Elsa Ramirez -->
+            <a href="casosdeexito.html#elsa-ramirez" class="proyecto-card">
+                <div class="proyecto-img-box">
+                    <img src="proyectos de empresa/Elsa Ramirez/Entrada Principal.jpg" alt="Proyecto Elsa Ramirez" class="proyecto-img">
+                    <span class="proyecto-badge">Vivienda</span>
+                </div>
+                <div class="proyecto-info">
+                    <h3>Proyecto Elsa Ramirez</h3>
+                    <p>Diseño de acceso principal, terraza superior, distribución por niveles y vista posterior.</p>
+                    <span class="proyecto-link">Abrir Álbum (5 fotos) &rarr;</span>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="ver-todos-container">
+            <a href="casosdeexito.html" class="btn-ver-todos">Ver Portafolio Completo (11 Proyectos) &rarr;</a>
+        </div>
+    </section>
+
+    <!-- 3. SHOWCASE TECNOLÓGICO: ENTORNO 3D & RECORRIDOS VIRTUALES -->
+    <section class="showcase-3d-section">
+        <div class="showcase-3d-container">
+            
+            <!-- Cabecera del Showcase -->
+            <div class="showcase-3d-top">
+                <div class="showcase-3d-title-box">
+                    <span class="tag-dorado">Tecnología BIM & Renders Interactivos</span>
+                    <h3>Entorno 3D & Recorridos Virtuales</h3>
+                    <p>Visualiza nuestras propuestas con libertad total: rotación en 360°, análisis de volumetría, iluminación y acabados antes de la fase de obra.</p>
+                </div>
+
+                <div class="showcase-badges">
+                    <span class="badge-control">🖱️ Rotación 360°</span>
+                    <span class="badge-control">🔍 Zoom Orbital</span>
+                    <span class="badge-control">🖥️ Pantalla Completa</span>
+                </div>
+            </div>
+
+            <!-- Rejilla con las 3 propuestas reales de tu galería -->
+            <div class="showcase-models-grid">
+                
+                <!-- Propuesta 1: Fachada -->
+                <a href="galeria.html#modelo-fachada" class="showcase-model-card">
+                    <div class="showcase-thumb-box">
+                        <img src="proyectos de empresa/Olinda Campos/Fachada02.jpg" alt="Fachada Residencial">
+                        <span class="badge-live-3d">● 3D DISPONIBLE</span>
+                    </div>
+                    <div class="showcase-card-body">
+                        <h4>Propuesta Fachada Residencial</h4>
+                        <p>Distribución exterior, acabados contemporáneos y volumetría.</p>
+                    </div>
+                </a>
+
+                <!-- Propuesta 2: Interiorismo -->
+                <a href="galeria.html#modelo-interior" class="showcase-model-card">
+                    <div class="showcase-thumb-box">
+                        <img src="proyectos de empresa/madrid constructores inmobiliarios/Sala01.jpg" alt="Interiorismo y Plantas">
+                        <span class="badge-live-3d">● 3D DISPONIBLE</span>
+                    </div>
+                    <div class="showcase-card-body">
+                        <h4>Interiorismo & Distribución</h4>
+                        <p>Recorrido por áreas comunes, acabados y distribución de sala-comedor.</p>
+                    </div>
+                </a>
+
+                <!-- Propuesta 3: Volumetría y Acceso -->
+                <a href="galeria.html#modelo-volumetria" class="showcase-model-card">
+                    <div class="showcase-thumb-box">
+                        <img src="proyectos de empresa/Elsa Ramirez/Entrada Principal.jpg" alt="Volumetría y Acceso">
+                        <span class="badge-live-3d">● 3D DISPONIBLE</span>
+                    </div>
+                    <div class="showcase-card-body">
+                        <h4>Volumetría y Acceso</h4>
+                        <p>Propuesta integral con estudio de iluminación natural y terrazas.</p>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- Pie del bloque con botón hacia el visor -->
+            <div class="showcase-footer">
+                <span class="showcase-footer-hint">Haz clic en cualquier propuesta para interactuar con ella en el visor tridimensional.</span>
+                <a href="galeria.html" class="btn-launch-3d">
+                    Abrir Visor 3D Interactivo &rarr;
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CUERPO PRINCIPAL: QUIÉNES SOMOS Y FORMULARIO -->
     <main class="main-container">
         <section class="nosotros-section">
             <div class="nosotros-title">
@@ -57,9 +804,9 @@
             </div>
         </section>
 
+        <!-- FORMULARIO DE CONTACTO -->
         <section id="contacto" class="contacto-section">
             <div class="contacto-container">
-                <!-- Columna Izquierda: Formulario -->
                 <div class="contacto-col-form">
                     <span class="contacto-subtitle">Formulario de Contacto</span>
                     <h2 class="contacto-title">Solicitar una Cotización</h2>
@@ -98,7 +845,6 @@
                     </form>
                 </div>
 
-                <!-- Columna Derecha: Información de contacto -->
                 <div class="contacto-col-info">
                     <div class="info-item">
                         <h3>Ubícanos en:</h3>
@@ -108,6 +854,7 @@
                     <div class="info-item">
                         <h3>Más Información:</h3>
                         <p>+51 981 173 251</p>
+                        <!-- Correo intacto -->
                         <p>constructora@albins.com.pe</p>
                     </div>
 
@@ -124,21 +871,17 @@
     <footer>
         <p>&copy; 2026 SGSG Construcciones Asesoramiento Técnico & Legal S.A.C. Todos los derechos reservados.</p>
     </footer>
-    <!-- ==========================================
-         BOTÓN FLOTANTE DE WHATSAPP GLOBAL
-         ========================================== -->
+
+    <!-- BOTÓN DE WHATSAPP -->
     <div class="whatsapp-floating-container">
-        <!-- El número +51981173251 con un mensaje prellenado codificado para URL -->
         <a href="https://wa.me/51981173251?text=Hola,%20vengo%20de%20la%20página%20web%20y%20deseo%20más%20información%20sobre%20sus%20servicios." target="_blank" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
             <span class="whatsapp-tooltip">¡Contáctanos vía WhatsApp!</span>
-            <!-- Icono SVG puro (Carga instantánea, sin librerías externas) -->
             <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
             </svg>
         </a>
     </div>
 
-    <!-- Tu script existente -->
     <script src="javascript/main.js"></script>
 </body>
 </html>
