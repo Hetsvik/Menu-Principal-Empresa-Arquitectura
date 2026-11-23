@@ -47,7 +47,8 @@
             margin: 0;
             line-height: 1.5;
         }
-/* =======================================================
+
+        /* =======================================================
            TARJETAS DE SERVICIOS CON IMÁGENES REALES
            ======================================================= */
         .cards-container {
@@ -166,6 +167,7 @@
             color: #0b0c0e;
             border-color: #d4af37;
         }
+
         /* =======================================================
            2. SECCIÓN PROYECTOS DESTACADOS (CASOS DE ÉXITO REALES)
            ======================================================= */
@@ -287,59 +289,7 @@
         }
 
         /* =======================================================
-           3. BANNER DESTACADO GALERÍA 3D
-           ======================================================= */
-        .banner-3d-box {
-            max-width: 1250px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, rgba(18, 20, 27, 0.95) 0%, rgba(27, 31, 40, 0.95) 100%);
-            border: 1px solid rgba(212, 175, 55, 0.5);
-            border-radius: 16px;
-            padding: 35px 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
-        }
-
-        .banner-3d-text h3 {
-            font-size: 24px;
-            color: #ffffff;
-            margin: 0 0 8px 0;
-            font-weight: 700;
-        }
-
-        .banner-3d-text p {
-            color: #a0a6b1;
-            font-size: 15px;
-            margin: 0;
-            max-width: 650px;
-            line-height: 1.5;
-        }
-
-        .btn-banner-3d {
-            background: #d4af37;
-            color: #0b0c0e;
-            padding: 13px 28px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .btn-banner-3d:hover {
-            background: #f3ca46;
-            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
-            transform: translateY(-2px);
-        }
-        /* =======================================================
-           SHOWCASE 3D EN EL INICIO (TRANSPARENTE Y MODERNO)
+           SHOWCASE 3D EN EL INICIO (MODELO ÚNICO DESTACADO)
            ======================================================= */
         .showcase-3d-section {
             position: relative;
@@ -403,35 +353,28 @@
             font-weight: 600;
         }
 
-        /* Rejilla de las 3 maquetas 3D */
-        .showcase-models-grid {
+        /* Tarjeta única destacada del modelo 3D */
+        .showcase-single-model {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .showcase-model-card {
+            grid-template-columns: 1.15fr 1fr;
             background: rgba(11, 13, 17, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
             text-decoration: none;
             transition: all 0.3s ease;
-            position: relative;
+            margin-bottom: 30px;
         }
 
-        .showcase-model-card:hover {
+        .showcase-single-model:hover {
             border-color: #d4af37;
-            transform: translateY(-5px);
+            transform: translateY(-4px);
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
         }
 
         .showcase-thumb-box {
             position: relative;
-            height: 160px;
+            height: 240px;
             overflow: hidden;
             background: #090b0e;
         }
@@ -440,42 +383,46 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
             transition: transform 0.4s ease;
         }
 
-        .showcase-model-card:hover .showcase-thumb-box img {
+        .showcase-single-model:hover .showcase-thumb-box img {
             transform: scale(1.06);
         }
 
         .badge-live-3d {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(0, 0, 0, 0.75);
+            top: 12px;
+            left: 12px;
+            background: rgba(0, 0, 0, 0.78);
             border: 1px solid #d4af37;
             color: #d4af37;
             font-size: 10px;
             font-weight: 800;
-            padding: 3px 8px;
+            padding: 4px 10px;
             border-radius: 4px;
             letter-spacing: 0.5px;
         }
 
         .showcase-card-body {
-            padding: 16px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .showcase-card-body h4 {
-            font-size: 16px;
+            font-size: 20px;
             color: #ffffff;
-            margin: 0 0 6px 0;
+            margin: 0 0 10px 0;
             font-weight: 700;
         }
 
         .showcase-card-body p {
-            font-size: 12px;
+            font-size: 14px;
             color: #9aa0a6;
-            line-height: 1.4;
+            line-height: 1.6;
             margin: 0;
         }
 
@@ -513,7 +460,19 @@
             background: #f3ca46;
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
             transform: translateY(-2px);
-        }   
+        }
+
+        @media (max-width: 768px) {
+            .showcase-single-model {
+                grid-template-columns: 1fr;
+            }
+            .showcase-thumb-box {
+                height: 190px;
+            }
+            .showcase-card-body {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -525,21 +484,21 @@
             </div>
             
             <nav class="nav-container">
-              <ul class="nav-links">
-    <li><a href="index.html">Inicio</a></li>
-    
-    <li class="dropdown">
-        <a href="javascript:void(0);" class="dropdown-toggle">Servicios <span class="arrow">&#9662;</span></a>
-        <ul class="dropdown-menu">
-            <li><a href="servicios/arquitectura.html">Arquitectura</a></li>
-            <li><a href="servicios/abogados.html">Asesoría Legal</a></li>
-        </ul>
-    </li>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle">Servicios <span class="arrow">&#9662;</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="servicios/arquitectura.html">Arquitectura</a></li>
+                            <li><a href="servicios/abogados.html">Asesoría Legal</a></li>
+                        </ul>
+                    </li>
 
-    <li><a href="casosdeexito.html">Casos de Éxito</a></li>
-    <li><a href="galeria.html">Galería 3D</a></li>
-    <li><a href="contacto.html">Contacto</a></li>
-</ul>
+                    <li><a href="casosdeexito.html">Casos de Éxito</a></li>
+                    <li><a href="galeria.html">Galería 3D</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
             </nav>
         </div>
     </header>
@@ -550,7 +509,6 @@
             <img src="logo.png" alt="SGSG Logo Central" class="hero-logo-center">
             <h1>Construcción, Arquitectura y Asesoría Legal Integral</h1>
             <p>Fusionamos la precisión de la ingeniería, la visión del diseño arquitectónico vanguardista y el blindaje legal para materializar proyectos inmobiliarios de alta envergadura.</p>
-            <a href="contacto.html" class="btn-primary">Cotizar Proyecto</a>
         </div>
     </section>
 
@@ -669,16 +627,16 @@
         </div>
     </section>
 
-    <!-- 3. SHOWCASE TECNOLÓGICO: ENTORNO 3D & RECORRIDOS VIRTUALES -->
+    <!-- 3. SHOWCASE TECNOLÓGICO: ENTORNO 3D & RECORRIDO VIRTUAL -->
     <section class="showcase-3d-section">
         <div class="showcase-3d-container">
             
             <!-- Cabecera del Showcase -->
             <div class="showcase-3d-top">
                 <div class="showcase-3d-title-box">
-                    <span class="tag-dorado">Tecnología BIM & Renders Interactivos</span>
-                    <h3>Entorno 3D & Recorridos Virtuales</h3>
-                    <p>Visualiza nuestras propuestas con libertad total: rotación en 360°, análisis de volumetría, iluminación y acabados antes de la fase de obra.</p>
+                    <span class="tag-dorado">Tecnología BIM & Render Interactivo</span>
+                    <h3>Entorno 3D & Recorrido Virtual</h3>
+                    <p>Visualiza nuestra propuesta arquitectónica con libertad total: rotación en 360°, análisis de volumetría, iluminación y acabados antes de la fase de obra.</p>
                 </div>
 
                 <div class="showcase-badges">
@@ -688,50 +646,21 @@
                 </div>
             </div>
 
-            <!-- Rejilla con las 3 propuestas reales de tu galería -->
-            <div class="showcase-models-grid">
-                
-                <!-- Propuesta 1: Fachada -->
-                <a href="galeria.html#modelo-fachada" class="showcase-model-card">
-                    <div class="showcase-thumb-box">
-                        <img src="proyectos de empresa/Olinda Campos/Fachada02.jpg" alt="Fachada Residencial">
-                        <span class="badge-live-3d">● 3D DISPONIBLE</span>
-                    </div>
-                    <div class="showcase-card-body">
-                        <h4>Propuesta Fachada Residencial</h4>
-                        <p>Distribución exterior, acabados contemporáneos y volumetría.</p>
-                    </div>
-                </a>
-
-                <!-- Propuesta 2: Interiorismo -->
-                <a href="galeria.html#modelo-interior" class="showcase-model-card">
-                    <div class="showcase-thumb-box">
-                        <img src="proyectos de empresa/madrid constructores inmobiliarios/Sala01.jpg" alt="Interiorismo y Plantas">
-                        <span class="badge-live-3d">● 3D DISPONIBLE</span>
-                    </div>
-                    <div class="showcase-card-body">
-                        <h4>Interiorismo & Distribución</h4>
-                        <p>Recorrido por áreas comunes, acabados y distribución de sala-comedor.</p>
-                    </div>
-                </a>
-
-                <!-- Propuesta 3: Volumetría y Acceso -->
-                <a href="galeria.html#modelo-volumetria" class="showcase-model-card">
-                    <div class="showcase-thumb-box">
-                        <img src="proyectos de empresa/Elsa Ramirez/Entrada Principal.jpg" alt="Volumetría y Acceso">
-                        <span class="badge-live-3d">● 3D DISPONIBLE</span>
-                    </div>
-                    <div class="showcase-card-body">
-                        <h4>Volumetría y Acceso</h4>
-                        <p>Propuesta integral con estudio de iluminación natural y terrazas.</p>
-                    </div>
-                </a>
-
-            </div>
+            <!-- Modelo 3D único disponible -->
+            <a href="galeria.html" class="showcase-single-model">
+                <div class="showcase-thumb-box">
+                    <img src="proyectos de empresa/Olinda Campos/Fachada02.jpg" alt="Propuesta Fachada Residencial 3D">
+                    <span class="badge-live-3d">● 3D DISPONIBLE</span>
+                </div>
+                <div class="showcase-card-body">
+                    <h4>Propuesta Fachada Residencial</h4>
+                    <p>Explora la distribución exterior, acabados contemporáneos y volumetría completa del proyecto directamente en nuestro visor tridimensional en tiempo real.</p>
+                </div>
+            </a>
 
             <!-- Pie del bloque con botón hacia el visor -->
             <div class="showcase-footer">
-                <span class="showcase-footer-hint">Haz clic en cualquier propuesta para interactuar con ella en el visor tridimensional.</span>
+                <span class="showcase-footer-hint">Haz clic en el proyecto o en el botón para interactuar con él en el visor tridimensional.</span>
                 <a href="galeria.html" class="btn-launch-3d">
                     Abrir Visor 3D Interactivo &rarr;
                 </a>
@@ -740,7 +669,7 @@
         </div>
     </section>
 
-    <!-- CUERPO PRINCIPAL: QUIÉNES SOMOS Y FORMULARIO -->
+    <!-- CUERPO PRINCIPAL: QUIÉNES SOMOS -->
     <main class="main-container">
         <section class="nosotros-section">
             <div class="nosotros-title">
@@ -749,66 +678,6 @@
             <div class="nosotros-text">
                 <p>En <strong>SGSG Construcciones Asesoramiento Técnico & Legal S.A.C.</strong>, no solo levantamos estructuras; construimos absoluta confianza y rentabilidad para nuestros inversionistas.</p>
                 <p>Somos una firma integral pionera capaz de unificar bajo un mismo estándar técnico la arquitectura creativa de vanguardia, el cálculo de ingeniería civil riguroso y un área especializada en saneamiento y defensa legal inmobiliaria. Garantizamos que tu inversión esté blindada desde el plano en papel hasta la entrega de llaves.</p>
-            </div>
-        </section>
-
-        <!-- FORMULARIO DE CONTACTO -->
-        <section id="contacto" class="contacto-section">
-            <div class="contacto-container">
-                <div class="contacto-col-form">
-                    <span class="contacto-subtitle">Formulario de Contacto</span>
-                    <h2 class="contacto-title">Solicitar una Cotización</h2>
-                    
-                    <form action="#" method="POST" class="contacto-form" id="formularioSGSG">
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <input type="email" id="correo" name="correo" placeholder="Correo" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <input type="tel" id="telefono" name="telefono" placeholder="Telf" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <select id="servicio" name="servicio" required>
-                                    <option value="" disabled selected>Selecciona Servicio</option>
-                                    <option value="arquitectura">Diseño & Arquitectura</option>
-                                    <option value="saneamiento">Saneamiento Legal e Inmobiliario</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group full-width">
-                            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Mensaje" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn-submit">Enviar Mensaje &rarr;</button>
-                    </form>
-                </div>
-
-                <div class="contacto-col-info">
-                    <div class="info-item">
-                        <h3>Ubícanos en:</h3>
-                        <p>Lima, Jirón Coronel Manuel Gómez 597, Lince 14</p>
-                    </div>
-
-                    <div class="info-item">
-                        <h3>Más Información:</h3>
-                        <p>+51 981 173 251</p>
-                        <!-- Correo intacto -->
-                        <p>constructora@albins.com.pe</p>
-                    </div>
-
-                    <div class="social-links">
-                        <a href="#" class="social-btn" aria-label="Facebook">f</a>
-                        <a href="#" class="social-btn" aria-label="Instagram">📷</a>
-                        <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
-                    </div>
-                </div>
             </div>
         </section>
     </main>
